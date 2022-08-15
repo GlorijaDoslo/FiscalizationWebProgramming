@@ -1,0 +1,103 @@
+<mat-menu>
+</mat-menu>
+
+
+<div class="container-fluid">
+    <h1>Welcome, {{buyerFirstname}} {{buyerLastname}}!</h1>
+    <br />
+    <div class="row buyerMenu">
+        <div class="col-sm-4">
+            <button mat-menu-item (click)="seeCompanies()" class="matMenuFont">See all companies</button>
+        </div>
+        <div class="col-sm-2">
+            <button mat-menu-item (click)="seeAccounts()" class="matMenuFont">See accounts</button>
+        </div>
+        <div class="col-sm-2">
+            <button mat-menu-item (click)="changePassword()" class="matMenuFont">Change password</button>
+        </div>
+        <div class="col-sm-2">
+            <button mat-menu-item (click)="logOut()" class="matMenuFont">Log out</button>
+        </div>
+    </div>
+</div>
+
+<!--For companies-->
+<h2>Search:</h2>
+<table>
+  <tr>
+    <th>Item name:</th>
+    <td>
+      <input type="text" [(ngModel)]="searchItName">
+    </td>
+  </tr>
+  <tr>
+    <th>Item manufacturer:</th>
+    <td>
+      <input type="text" [(ngModel)]="searchItManufacturer">
+    </td>
+  </tr>
+  <tr>
+    <td>
+      <button (click)="search()">Search</button>
+    </td>
+  </tr>
+</table>
+
+<div>
+    <table>
+        <tr>
+          <th>Company Name</th>
+          <th>Address</th>
+          <th>Item name</th>
+          <th>Manufacturer</th>
+          <th>Available</th>
+        </tr>
+    
+      <tr *ngFor="let i of searchedCompanies; let in=index">
+        <td>{{i.comname}}</td>
+        <td>{{i.address}}</td>
+        <td>
+          <div *ngFor="let it of i.arr1">
+            {{it.item.itemName}}
+          </div>
+        </td>
+        <td>
+          <div *ngFor="let it of i.arr1">
+            {{it.item.manufacturer}}
+          </div>
+        </td>
+        <td>
+            <a class="link1" (click)="show(in)">Show</a>
+        </td>
+      </tr>
+    </table>
+
+    <div *ngIf="isShow">
+        <table>
+          <tr >
+            <th>Item name</th>
+            <th>Manufacturer</th>
+            <th>Object</th>
+            <th>Price</th>
+          </tr>
+        <tr *ngFor="let it of selectedCompany.arr1">
+          <td>
+              {{it.item.itemName}}
+          </td>
+          <td>
+              {{it.item.manufacturer}}
+          </td>
+          <td>
+            <div *ngFor="let w of it.ar">
+              {{w.war.name}}
+            </div>
+          </td>
+          <td>
+            <div *ngFor="let w of it.ar">
+              {{w.price}}
+            </div>
+          </td>
+        </tr>
+        </table>
+      </div>
+</div>

@@ -1,0 +1,177 @@
+<h2>Register your company</h2>
+<br />
+<a routerLink="">Return</a>
+<br /><br />
+<form (ngSubmit)="register()" #submitform="ngForm">
+<table>
+    <tr>
+        <th>Firstname:</th>
+        <td>
+            <input type="text" name="firstname" required [(ngModel)]="firstname" #fname="ngModel" ngModel pattern="^[a-zA-Z]+$">
+            <div [hidden]="!fname.errors?.['pattern']" class="alert alert-danger">
+                It contains only letters.
+            </div>
+            <div [hidden]="!fname.errors?.['required']" class="alert alert-danger">
+                This field is required.
+            </div>
+        </td>
+    </tr>
+    <tr>
+        <th>Lastname:</th>
+        <td>
+            <input type="text" name="lastname" required [(ngModel)]="lastname" #lname="ngModel" ngModel pattern="^[a-zA-Z]+$">
+            <div [hidden]="!lname.errors?.['pattern']" class="alert alert-danger">
+                It contains only letters.
+            </div>
+            <div [hidden]="!lname.errors?.['required']" class="alert alert-danger">
+                This field is required.
+            </div>
+        </td>        
+    </tr>
+    <tr>
+        <th>Username:</th>
+        <td>
+            <input type="text" name="username" required [(ngModel)]="username" #uname="ngModel">
+            <div [hidden]="!uname.errors?.['required']" class="alert alert-danger">
+                This field is required.
+            </div>
+        </td>
+  
+    </tr>
+    <tr>
+        <th>Password:</th>
+        <td>
+            <input type="password" name="passwordone" [(ngModel)]="password1" #newPass="ngModel" required minlength="8" maxlength="12"
+            ngModel pattern="^(?=^[a-zA-Z].*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[^a-zA-Z0-9])(?!.*\s).{8,12}$">
+            <div [hidden]="!newPass.errors?.['pattern']" class="alert alert-danger">
+                It needs to start with a letter and contain one big letter, one number and one special character.
+            </div>
+            <div [hidden]="!newPass.errors?.['required']" class="alert alert-danger">
+                This field is required.
+            </div>
+            <div [hidden]="!newPass.errors?.['minlength']">
+                New password must be at least 8 characters long.
+            </div>
+            <div [hidden]="!newPass.errors?.['maxlength']">
+                New password must be at most 12 characters long.
+            </div> 
+        </td>
+             
+    </tr>
+    <tr>
+        <th>Reenter Password:</th>
+        <td>
+            <input type="password" name="passwordtwo" [(ngModel)]="password2"  #confirmPass="ngModel" required minlength="8" maxlength="12"
+            ngModel pattern="^(?=^[a-zA-Z].*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[^a-zA-Z0-9])(?!.*\s).{8,12}$">
+            <div [hidden]="!confirmPass.errors?.['pattern']" class="alert alert-danger">
+                It needs to start with a letter and contain one big letter, one number and one special character.
+            </div>
+            <div [hidden]="!confirmPass.errors?.['required']" class="alert alert-danger">
+                This field is required.
+            </div>
+            <div [hidden]="!confirmPass.errors?.['minlength']">
+                New password must be at least 8 characters long.
+            </div>
+            <div [hidden]="!confirmPass.errors?.['maxlength']">
+                New password must be at most 12 characters long.
+            </div> 
+        </td>        
+    </tr>
+    <tr>
+        <th>Phone:</th>
+        <td>
+            <input type="text" name="pho" required [(ngModel)]="phone" #phone1="ngModel" pattern="[- +()0-9]{6,}"
+            minlength="6">
+            <div [hidden]="!phone1.errors?.['required']" class="alert alert-danger">
+                This field is required.
+            </div>
+            <div [hidden]="!phone1.errors?.['pattern']" class="alert alert-danger">
+                It needs to have at least 6 numbers, and cannot contain letters.
+            </div>
+        </td>        
+    </tr>
+    <tr>
+        <th>Email:</th>
+        <td>
+            <input type="text" name="emai" [(ngModel)]="email" required #email1="ngModel" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$">
+            <div [hidden]="!email1.errors?.['required']" class="alert alert-danger">
+                This field is required.
+            </div>
+            <div [hidden]="!email1.errors?.['pattern']" class="alert alert-danger">
+                Format of email is invalid.
+            </div>
+        </td>        
+    </tr>
+    <tr>
+        <th>Company name:</th>
+        <td>
+            <input type="text" name="comname" required [(ngModel)]="comname" #cname="ngModel">
+            <div [hidden]="!cname.errors?.['required']" class="alert alert-danger">
+                This field is required.
+            </div>
+        </td>        
+    </tr>
+    <tr>
+        <th>Address:</th>
+        <td>
+            <input type="text" name="address" required [(ngModel)]="address" #add="ngModel" pattern="^[a-zA-Z]+,[ a-zA-Z]+,[ 0-9]+,.*$">
+            <div [hidden]="!add.errors?.['required']" class="alert alert-danger">
+                This field is required.
+            </div>
+            <div [hidden]="!add.errors?.['pattern']" class="alert alert-danger">
+                Format of address is invalid.
+            </div>
+        </td>        
+    </tr>
+    <tr>
+        <th>PIB:</th>
+        <td>
+            <input type="text" name="pib" required [(ngModel)]="pib" ngModel pattern="^[1-9]{1}[0-9]{8}" #p="ngModel" maxlength="9">
+            <div [hidden]="!p.errors?.['pattern']" class="alert alert-danger">
+                It contains 9 digits and it can't start with 0.
+            </div>
+            <div [hidden]="!p.errors?.['required']" class="alert alert-danger">
+                This field is required.
+            </div>
+        </td>        
+    </tr>
+    <tr>
+        <th>Company unique number:</th>
+        <td>
+            <input type="text" name="comnumber" required [(ngModel)]="comnumber" #cnumber="ngModel" #uninum="ngModel" pattern="^[0-9]+$">
+            <div [hidden]="!uninum.errors?.['required']" class="alert alert-danger">
+                This field is required.
+            </div>
+            <div [hidden]="!uninum.errors?.['pattern']" class="alert alert-danger">
+                Enter a number!
+            </div>
+        </td>        
+    </tr>
+    <tr>
+        <th>Select Image</th>
+        <td>
+        <label class="image-upload-container btn btn-bwm">
+
+            <input #imageInput
+                   type="file"
+                    accept=".png, .jpg"
+                   (change)="processFile(imageInput)">
+        </label>
+        </td>
+    </tr>
+    <tr>
+        
+        <td>
+            <button type="submit" class="btn btn-success" [disabled]="!submitform.form.valid">Request registration</button>
+        </td>
+        <td>
+            <button (click)="cancelRegistration()">Cancel registration</button>
+        </td>  
+    </tr>
+
+</table>
+<div [style.color]="message=='Request to add company saved successfully!' ? 'green' : 'red'">
+    {{message}}
+</div>
+</form>
+

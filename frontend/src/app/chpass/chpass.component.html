@@ -1,0 +1,74 @@
+<h2>Change Password</h2>
+<div *ngIf="page == 'admin'">
+    <a routerLink="/admin">Return</a>
+</div>
+<div *ngIf="page == 'buyer'">
+    <a routerLink="/buyer">Return</a>
+</div>
+<div *ngIf="page == 'company'">
+    <a routerLink="/company">Return</a>
+</div>
+<br /><br />
+<form (ngSubmit)="chpass()" #submitform="ngForm">
+<table>
+    <tr>
+        <th>Old password:</th>
+        <td>
+            <input type="password" name="passwordone" [(ngModel)]="password1" required #pass1="ngModel">
+            <div [hidden]="!pass1.errors?.['required']" class="alert alert-danger">
+                This field is required.
+            </div>
+            <!-- <div [hidden]="!pass1.errors?.['minlength']">
+                Old password must be at least 8 characters long.
+            </div>
+            <div [hidden]="!pass1.errors?.['maxlength']">
+                Old password must be at most 12 characters long.
+            </div> -->
+        </td>
+    </tr>
+    <tr>
+        <th>Password:</th>
+        <td>
+            <input type="password" name="passwordtwo" [(ngModel)]="password2" #pass2="ngModel" required minlength="8" maxlength="12"
+            ngModel pattern="^(?=^[a-zA-Z].*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[^a-zA-Z0-9])(?!.*\s).{8,12}$">
+            <div [hidden]="!pass2.errors?.['pattern']" class="alert alert-danger">
+                It needs to start with a letter and contain one big letter, one number and one special character.
+            </div>
+            <div [hidden]="!pass2.errors?.['required']" class="alert alert-danger">
+                This field is required.
+            </div>
+            <div [hidden]="!pass2.errors?.['minlength']">
+                New password must be at least 8 characters long.
+            </div>
+            <div [hidden]="!pass2.errors?.['maxlength']">
+                New password must be at most 12 characters long.
+            </div>
+        </td>
+    </tr>
+    <tr>
+        <th>Reenter password:</th>
+        <td>
+            <input type="password" name="passwordthree" [(ngModel)]="password3" #pass3="ngModel" required minlength="8" 
+                maxlength="12" ngModel pattern="^(?=^[a-zA-Z].*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[^a-zA-Z0-9])(?!.*\s).{8,12}$">
+            <div [hidden]="!pass2.errors?.['pattern']" class="alert alert-danger">
+                It needs to start with a letter and contain one big letter, one number and one special character.
+            </div>
+            <div [hidden]="!pass3.errors?.['required']" class="alert alert-danger">
+                This field is required.
+            </div>
+            <div [hidden]="!pass3.errors?.['minlength']">
+                Reentered password must be at least 8 characters long.
+            </div>
+            <div [hidden]="!pass3.errors?.['maxlength']">
+                Reentered password must be at most 12 characters long.
+            </div>
+        </td>
+    </tr>
+    <tr>
+        <td colspan="2">
+            <button type="submit" class="btn btn-success" [disabled]="!submitform.form.valid">Confirm</button>
+        </td>
+    </tr>
+</table>
+{{message}}
+</form>

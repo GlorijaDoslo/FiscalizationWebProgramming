@@ -1,0 +1,60 @@
+<h2>Add a table:</h2>
+<form (ngSubmit)="addTable()" #submitform="ngForm">
+  <table>
+    <tr>
+        <th>Shape:</th>
+        <td>
+            <select name="sha" [(ngModel)]="shape">
+                <option value="circle">Circle</option>
+                <option value="rectangle">Rectangle</option>
+            </select>
+        </td>        
+    </tr>
+    <tr>
+    <tr *ngIf="shape=='circle'">
+        <th>Radius(max is 100px):</th>
+        <td>
+            <input type="text" name="ra" [(ngModel)]="radius" required #r="ngModel" title="Enter radius of circle" pattern="^[0-9]+$">
+            <div [hidden]="!r.errors?.['pattern']" class="alert alert-danger">
+                Enter a number.
+            </div>
+            <div [hidden]="!r.errors?.['required']" class="alert alert-danger">
+                This field is required.
+            </div>
+        </td>
+    </tr>
+    <tr *ngIf="shape=='rectangle'">
+        <th>Width(max is 100px):</th>
+        <td>
+            <input type="text" name="w" required #wid="ngModel" [(ngModel)]="width" title="Enter width of rectangle" pattern="^[0-9]+$">
+            <div [hidden]="!wid.errors?.['pattern']" class="alert alert-danger">
+                Enter a number.
+            </div>
+            <div [hidden]="!wid.errors?.['required']" class="alert alert-danger">
+                This field is required.
+            </div>
+        </td>
+    </tr>
+    <tr *ngIf="shape=='rectangle'">
+        <th>Length(max is 100px):</th>
+        <td>
+            <input type="text" name="l" required #len="ngModel" [(ngModel)]="length" title="Enter length of rectangle" pattern="^[0-9]+$">
+            <div [hidden]="!len.errors?.['pattern']" class="alert alert-danger">
+                Enter a number.
+            </div>
+            <div [hidden]="!len.errors?.['required']" class="alert alert-danger">
+                This field is required.
+            </div>
+        </td>
+    </tr>
+    <tr>
+        <td></td>
+        <td>
+            <button type="submit" [disabled]="!submitform.form.valid">Add table</button>
+
+        </td>
+    </tr>
+  </table>
+  {{message}}
+</form>
+<button style="float:right" (click)="onCancel()">Cancel</button>

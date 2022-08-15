@@ -1,0 +1,64 @@
+<h2>Login</h2>
+<table>
+    <tr>
+        <th>Username:</th>
+        <td>
+            <input type="text" name="username" [(ngModel)]="username">
+        </td>
+    </tr>
+    <tr>
+        <th>Password:</th>
+        <td>
+            <input type="password" name="password" [(ngModel)]="password"> 
+        </td>
+    </tr>
+    <tr>
+        <td colspan="2">
+            <button (click)="login()">Login</button>
+        </td>
+    </tr>
+</table>
+<div class="red">
+  {{message}}
+</div>
+<br>
+if you want to register your company click <a routerLink="/register">here</a>.
+<br>
+<hr>
+<table>
+    <tr>
+        <th>Item name</th>
+        <th>Item price</th>
+        <th>Item amount</th>
+        <th>PDV percent</th>
+        <th>Total Value</th>
+        <th>Company Name</th>
+        <th>Date</th>
+      </tr>
+  
+    <tr *ngFor="let i of lastFiveReceipts">
+      <td>
+        <div *ngFor="let it of i.items">
+          {{it.itemName}}
+        </div>
+      </td>
+      <td>
+        <div *ngFor="let it of i.items">
+          {{it.price}}
+        </div>
+      </td>
+      <td>
+        <div *ngFor="let it of i.items">
+          {{it.amount}}
+        </div>
+      </td>
+      <td>
+        <div *ngFor="let it of i.items">
+          {{it.pdvPercent}}
+        </div>
+      </td>
+      <td>{{i.totalValue}}</td>
+      <td>{{i.nameOfCompany}}</td>
+      <td>{{i.dateOfReceipt}}</td>
+    </tr>
+</table>

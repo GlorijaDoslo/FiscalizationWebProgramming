@@ -1,0 +1,39 @@
+<h2>Add an item:</h2>
+<form (ngSubmit)="addItemToReceipt()" #submitform="ngForm">
+  <table>
+    <tr>
+        <th>Choose item:</th>
+        <td>
+            <select required #ite="ngModel" name="ite" [(ngModel)]="itemId" (change)="changeItem()">
+                <option *ngFor="let item of itemsInfo" value="{{item.idIte}}">{{item.name}}</option>
+            </select>
+            <div [hidden]="!ite.errors?.['required']" class="alert alert-danger">
+                This field is required.
+            </div>
+        </td>        
+    </tr>
+    <tr>
+    <tr *ngIf="isItem">
+        <th>Amount:</th>
+        <td>
+            <input type="text" name="a" [(ngModel)]="amount" required #a="ngModel" title="Enter amount of item" pattern="^[0-9]+$">
+            {{selectedItem.unitOfMeasure}}
+            <div [hidden]="!a.errors?.['pattern']" class="alert alert-danger">
+                Enter a number.
+            </div>
+            <div [hidden]="!a.errors?.['required']" class="alert alert-danger">
+                This field is required.
+            </div>
+        </td>
+    </tr>
+    <tr>
+        <!-- <td></td> -->
+        <td>
+            <button type="submit" [disabled]="!submitform.form.valid">Add Item</button>
+
+        </td>
+    </tr>
+  </table>
+  {{message}}
+</form>
+<button style="float:right" (click)="onCancel()">Cancel</button>

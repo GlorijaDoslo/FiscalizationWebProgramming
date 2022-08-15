@@ -1,0 +1,89 @@
+<div *ngIf="page == 'admin'">
+    <a routerLink="/admin">Return</a>
+</div>
+<div *ngIf="page == 'buyer'">
+    <a routerLink="/buyer">Return</a>
+</div>
+<div *ngIf="page == 'company'">
+    <a routerLink="/company">Return</a>
+</div>
+
+<table>
+    <tr>
+
+      <th>Company Name</th>
+      <th>Object Name</th>
+      <th>Total Value</th>
+      <th>Method of payment</th>
+      <th>Date</th>
+      <th>Action</th>
+    </tr>
+
+  <tr *ngFor="let i of allReceipts">
+
+    <td>{{i.nameOfCompany}}</td>
+    <td>{{i.tableObject}}</td>
+    <td>{{i.totalValue}}</td>
+    <td>{{i.paymentMethod}}</td>
+    <td>{{i.dateOfReceipt}}</td>
+    
+    <td> 
+      <a class="link1" (click)="showDetails(i)">Show details</a>
+    </td>
+  </tr>
+</table>
+<hr />
+<div *ngIf="isShowDetails">
+  <table>
+    <tr>
+      <th>Item name</th>
+      <th>Item price</th>
+      <th>Item amount</th>
+      <th>PDV percent</th>
+    </tr>
+  <tr *ngFor="let i of selectedReceipt.items">
+    <td>
+        {{i.itemName}}
+    </td>
+    <td>
+        {{i.price}}
+    </td>
+    <td>
+        {{i.amount}}
+    </td>
+    <td>
+        {{i.pdvPercent}}
+    </td>
+  </tr>
+  </table>
+</div>
+<br>
+<hr>
+<ngx-charts-bar-vertical
+  [view]="view"
+  [results]="single"
+  [gradient]="gradient"
+  [xAxis]="showXAxis"
+  [yAxis]="showYAxis"
+  [legend]="showLegend"
+  [showXAxisLabel]="showXAxisLabel"
+  [showYAxisLabel]="showYAxisLabel"
+  [xAxisLabel]="xAxisLabel"
+  [yAxisLabel]="yAxisLabel"
+  (select)="onSelect($event)">
+</ngx-charts-bar-vertical>
+<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+<hr>
+<ngx-charts-bar-vertical
+  [view]="view"
+  [results]="single1"
+  [gradient]="gradient"
+  [xAxis]="showXAxis"
+  [yAxis]="showYAxis"
+  [legend]="showLegend"
+  [showXAxisLabel]="showXAxisLabel"
+  [showYAxisLabel]="showYAxisLabel"
+  [xAxisLabel]="xAxisLabel"
+  [yAxisLabel]="yAxisLabel"
+  (select)="onSelect($event)">
+</ngx-charts-bar-vertical>

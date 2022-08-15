@@ -1,0 +1,157 @@
+<h2>Getting to know you</h2>
+<br />
+<a routerLink="">Return</a>
+<br /><br />
+<form (ngSubmit)="addData()" #submitform="ngForm">
+<table>
+    <tr>
+        <th>Category:</th>
+        <td>
+            <select name="cat" [(ngModel)]="category">
+                <option value="prodavnica">Prodavnica</option>
+                <option value="ugostitelj">Ugostitelj</option>
+            </select>
+        </td>
+    </tr>
+    <tr>
+        <th>Activity Cipher:</th>
+        <td>
+            <select required name="acCipher" [(ngModel)]="activityCiphers" multiple #act="ngModel">
+                <option *ngFor="let n of allCiphers" [ngValue]="n">{{n.cipher}}</option>
+            </select>
+            <div [hidden]="!act.errors?.['required']" class="alert alert-danger">
+                This field is required.
+            </div>
+        </td>        
+    </tr>
+    <tr>
+        <th>Number of accounts:</th>
+        <td>
+            <input type="text" name="accNum" [(ngModel)]="numOfAccounts" #accN="ngModel" pattern="^[0-9]+$" title="Enter a number"
+            (ngModelChange)="deleteAccounts()">
+            <div [hidden]="!accN.errors?.['pattern']" class="alert alert-danger">
+                This field contains only one number.
+            </div>
+        </td>
+    </tr>
+    <h2>Add account:</h2>
+    <tr>
+        <th>Account number:</th>   
+        <td>
+            <input type="text" name="acc" required [(ngModel)]="accNumber" #acc="ngModel" title="example: 111-111111111111-11"
+                pattern="^[0-9]{3}-[0-9]{12}-[0-9]{2}$">
+            <!-- <div [hidden]="!acc.errors?.['required']" class="alert alert-danger">
+                This field is required.
+            </div> -->
+            <div [hidden]="!acc.errors?.['pattern']" class="alert alert-danger">
+                Format is invalid.
+            </div>
+        </td>
+    </tr>
+    <tr>
+        <th>Bank:</th>
+        <td>
+            <input type="text" name="acc2" required [(ngModel)]="bank" #acc2="ngModel" title="Enter bank name">
+            <!-- <div [hidden]="!acc2.errors?.['required']" class="alert alert-danger">
+                This field is required.
+            </div> -->
+        </td>
+    </tr>
+
+    <tr>
+        <td>
+            <button type="button" (click)="addAccount()">Add</button>
+        </td>
+        <td>{{messageAcc}}</td>
+    </tr>
+
+    <tr>
+        <th>Number of warehouses:</th>
+        <td>
+            <input type="text" name="warehouse" [(ngModel)]="numOfWarehouses" #ware="ngModel" pattern="^[0-9]+$" title="Enter a number"
+            (ngModelChange)="deleteWarehouses()">
+            <div [hidden]="!ware.errors?.['pattern']" class="alert alert-danger">
+                This field contains only one number.
+            </div>
+        </td>
+    </tr>
+    <h2>Add warehouse:</h2>
+    <tr>
+        <th>Name:</th>
+        <td>
+            <input type="text" name="warehouse2" [(ngModel)]="warName" #war="ngModel" title="Enter warehouse name">
+            <!-- <div [hidden]="!war.errors?.['required']" class="alert alert-danger">
+                This field is required.
+            </div> -->
+        </td>
+    </tr>
+
+    <tr>
+        <td>
+            <button type="button" (click)="addWarehouse()">Add</button>
+            {{messageWar}}
+        </td>
+
+    </tr>
+
+    <tr>
+        <th>Number of registers:</th>
+        <td>
+            <input type="text" name="register" [(ngModel)]="numOfRegisters" #ware="ngModel" pattern="^[0-9]+$" (ngModelChange)="deleteRegisters()"
+            title="Enter a number">
+            <div [hidden]="!ware.errors?.['pattern']" class="alert alert-danger">
+                This field contains only one number.
+            </div>
+        </td>
+    </tr>
+    <tr>
+        <h2 class="center">Add register:</h2>
+    <tr>
+        <th>Location of register:</th>
+        <td>
+            <input type="text" name="registers2" [(ngModel)]="locationOfRegister" title="Enter a location">
+        </td>
+    </tr>
+
+    <tr>
+        <th>Type of register:</th>
+        <td>
+            <select name="reg" [(ngModel)]="typeOfRegister">
+                <option value="obicna">Obicna</option>
+                <option value="e-kasa">E-kasa</option>
+                <option value="specijalna">Specijalna</option>
+            </select>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <button type="button" (click)="addRegister()">Add</button>
+        </td>
+        <td>{{messageReg}}</td>
+    </tr>
+
+    <tr>
+        <td>
+            <label>
+                <input type="checkbox" name="pdv" [(ngModel)]="isPDV">PDV
+            </label>
+        </td>
+    </tr>
+             
+    <tr>       
+        <td>
+            <button type="submit" [disabled]="!submitform.form.valid">Continue</button>
+        </td>
+        <td>
+            <button (click)="cancelData()">Cancel</button>
+        </td>  
+    </tr>
+</table>
+{{message}}
+<br />
+{{messageA}}
+<br />
+{{messageW}}
+<br />
+{{messageR}}
+</form>

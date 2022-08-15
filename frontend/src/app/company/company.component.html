@@ -1,0 +1,999 @@
+<h1>Welcome, {{companyFirstname}} {{companyLastname}}!</h1>
+<img style="float:right" src="{{imageUrl}}" alt="Red dot" />
+<button (click)="logOut()">Log out</button>
+<br />
+<button (click)="changePassword()">Change password</button>
+<br />
+<br />
+<br />
+<button mat-button [matMenuTriggerFor]="menu">Menu</button>
+<mat-menu #menu="matMenu">
+  <button mat-menu-item class="matMenuFont" (click)="seeAllInfo()">Informations about company</button>
+  <button mat-menu-item class="matMenuFont" (click)="orderers()">Orderers</button>
+  <button mat-menu-item class="matMenuFont" (click)="goodsAndServices()">Goods and services</button>
+  <button mat-menu-item class="matMenuFont" (click)="orderOfArticles()">Order of Articles</button>
+  <button mat-menu-item class="matMenuFont" (click)="orderOfTables()" *ngIf="ugostitelj">Order of Tables</button>
+  <button mat-menu-item class="matMenuFont" (click)="invoicing()">Invoicing</button>
+  <button mat-menu-item class="matMenuFont" (click)="reportReview()">Report review</button>
+</mat-menu>
+
+<div *ngIf="isSeeAllInfo">
+    <mat-tab-group class="matTabs" (selectedTabChange)="onChange($event)">
+        <mat-tab label="Basic info" class="matTabsFont" ></mat-tab>
+        <mat-tab label="Accounts" class="matTabsFont"></mat-tab>
+        <mat-tab label="Warehouses" class="matTabsFont"></mat-tab>
+        <mat-tab label="Cash Registers" class="matTabsFont"></mat-tab>
+      </mat-tab-group>
+
+      <div *ngIf="isBasicInfo" class="matTabs">
+        <div class="acceptUsersMenu">
+          <div class="container">
+              <table class="table table-striped table-bordered centerContent" *ngFor="let u of companyData">
+                      <tr>
+                          <th>Firstname:</th>
+                          <td>{{u.firstname}}</td>
+                          <td>
+                            <input type="text" name="firstname" [(ngModel)]="firstname" #fname="ngModel" ngModel pattern="^[a-zA-Z]+$">
+                            <div [hidden]="!fname.errors?.['pattern']" class="alert alert-danger">
+                                It contains only letters.
+                            </div>
+                          </td>
+                          <td>
+                            <button type="button" [disabled]="fname.errors?.['pattern']" (click)="changeFirstname()">Change</button>
+                          </td>
+                          <td>{{messageF}}</td>
+                      </tr>
+                      <tr>
+                        <th>Lastname:</th>
+                        <td>{{u.lastname}}</td>
+                        <td>
+                          <input type="text" name="lastname" [(ngModel)]="lastname" #lname="ngModel" ngModel pattern="^[a-zA-Z]+$">
+                          <div [hidden]="!lname.errors?.['pattern']" class="alert alert-danger">
+                              It contains only letters.
+                          </div>
+                        </td>
+                        <td>
+                          <button type="button" [disabled]="lname.errors?.['pattern']" (click)="changeLastname()">Change</button>
+                        </td>
+                        <td>{{messageL}}</td>
+                      </tr>
+                      <tr>
+                        <th>Phone:</th>
+                        <td>{{u.phone}}</td>
+                        <td>
+                          <input type="text" name="pho" [(ngModel)]="phone" #phone1="ngModel" pattern="[- +()0-9]{6,}"
+                          minlength="6">
+                          <div [hidden]="!phone1.errors?.['pattern']" class="alert alert-danger">
+                              It needs to have at least 6 numbers, and cannot contain letters.
+                          </div>
+                      </td>   
+
+                        <td>
+                          <button type="button" [disabled]="phone1.errors?.['pattern']" (click)="changePhone()">Change</button>
+                        </td>
+                        <td>{{messageP}}</td>
+                      </tr>
+                      <tr>
+                        <th>E-mail:</th>          
+                        <td>{{u.email}}</td>
+                        <td>
+                          <input type="text" name="emai" [(ngModel)]="email" #email1="ngModel" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$">
+                          <div [hidden]="!email1.errors?.['pattern']" class="alert alert-danger">
+                              Format of email is invalid.
+                          </div>
+                      </td>
+
+                        <td>
+                          <button type="button" [disabled]="email1.errors?.['pattern']" (click)="changeEmail()">Change</button>
+                        </td>
+                        <td>{{messageE}}</td>
+                      </tr>
+                      <tr>
+                        <th>Username:</th>
+                        <td>{{u.username}}</td>
+                        <td>
+                          <input type="text" name="username" class="classBorder" [(ngModel)]="username">
+                        </td>
+
+                        <td>
+                          <button type="button" (click)="changeUsername()">Change</button>
+                        </td>
+                        <td>{{messageU}}</td>
+                      </tr>
+                      <tr>
+                        <th>Company name:</th>
+                        <td>{{u.comname}}</td>
+                        <td>
+                          <input type="text" name="comname" class="classBorder" [(ngModel)]="comname">
+                      </td> 
+
+                        <td>
+                          <button type="button" (click)="changeComname()">Change</button>
+                        </td>
+                        <td>{{messageComname}}</td>
+                      </tr>
+                      <tr>
+                        <th>Address:</th>
+                        <td>{{u.address}}</td>
+                        <td>
+                          <input type="text" name="address" [(ngModel)]="address" #add="ngModel" pattern="^[a-zA-z]+,[ a-zA-z]+,[ 0-9]+,.*$">
+                          <div [hidden]="!add.errors?.['pattern']" class="alert alert-danger">
+                              Format of address is invalid.
+                          </div>
+                      </td> 
+
+                        <td>
+                          <button type="button" [disabled]="add.errors?.['pattern']" (click)="changeAddress()">Change</button>
+                        </td>
+                        <td>{{messageAddress}}</td>
+                      </tr>
+                      <tr>
+                        <th>PIB:</th>
+                        <td>{{u.pib}}</td>
+                        <td>
+                          <input type="text" name="pib" [(ngModel)]="pib" ngModel pattern="^[1-9]{1}[0-9]{8}" #p="ngModel" maxlength="9">
+                          <div [hidden]="!p.errors?.['pattern']" class="alert alert-danger">
+                              It contains 9 digits and it can't start with 0.
+                          </div>
+                      </td> 
+
+                        <td>
+                          <button type="button" [disabled]="p.errors?.['pattern']" (click)="changePIB()">Change</button>
+                        </td>
+                        <td>{{messagePIB}}</td>
+                      </tr>
+                      <tr>
+                        <th>Company number:</th>
+                        <td>{{u.comnumber}}</td>
+                        <td>
+                          <input type="text" name="comnumber" [(ngModel)]="comnumber" #cnumber="ngModel" #uninum="ngModel" pattern="^[0-9]+$">
+                          <div [hidden]="!uninum.errors?.['pattern']" class="alert alert-danger">
+                              Enter a number!
+                          </div>
+                      </td> 
+
+                        <td>
+                          <button type="button" [disabled]="uninum.errors?.['pattern']" (click)="changeComnumber()">Change</button>
+                        </td>
+                        <td>{{messageComnumber}}</td>
+                      </tr>
+
+                      <tr>
+                        <th>PDV:</th>
+                        <td>{{u.isPDV}}</td>
+                        <td>
+                          <input type="checkbox" name="pdv" [(ngModel)]="isPDV">
+                      </td> 
+                        <td>
+                          <button type="button" (click)="changePDV()">Change</button>
+                        </td>
+                        <td>{{messagePDV}}</td>
+                      </tr>
+              </table>
+          </div>
+      </div>
+      </div>
+
+      <div *ngIf="isAccounts">
+        <div>
+        <table>
+          <tr>
+            <th>idAcc</th>
+            <th>Account number</th>
+            <th>Bank</th>
+          </tr>
+          <tr *ngFor="let a of allAccounts">
+            <td>{{a.idAcc}}</td>
+            <td>{{a.accNum}}</td>
+            <td>{{a.bank}}</td>
+            <td>
+              <button type="button" (click)="deleteAccount(a.idAcc)">Delete</button>
+
+            </td>
+          </tr>
+        </table>
+        {{message}}
+      </div>
+        <div class="right-borded">
+
+        <table>
+          <h2>Insert an account:</h2>
+          <tr>
+              <th>Account number:</th>   
+              <td>
+                  <input type="text" name="acc" required [(ngModel)]="accNumber" #acc="ngModel" title="example: 111-111111111111-11"
+                      pattern="^[0-9]{3}-[0-9]{12}-[0-9]{2}$">
+                  <div [hidden]="!acc.errors?.['pattern']" class="alert alert-danger">
+                      Format is invalid.
+                  </div>
+              </td>
+          </tr>
+          <tr>
+              <th>Bank:</th>
+              <td>
+                  <input type="text" name="acc2" required [(ngModel)]="bank" #acc2="ngModel" title="Enter bank name">
+              </td>
+          </tr>
+      
+          <tr>
+              <td>
+                  <button type="button" (click)="addAccount()">Add</button>
+                  
+              </td>
+              <td>{{messageAcc}}</td>
+          </tr>
+        </table>
+      </div>
+      </div>
+
+      <div *ngIf="isWarehouses">
+        <table>
+          <tr>
+            <th>idWar</th>
+            <th>Name</th>
+          </tr>
+          <tr *ngFor="let w of allWarehouses">
+            <td>{{w.idWar}}</td>
+            <td>{{w.name}}</td>
+            <td>
+              <button type="button" (click)="deleteWarehouse(w.idWar)">Delete</button>
+            </td>
+          </tr>
+        </table>
+        {{message}}
+
+        <div class="right-borded">
+        <table>
+          <h2>Insert a warehouse:</h2>
+          <tr>
+            <th>Name:</th>
+            <td>
+                <input type="text" name="warehouse2" [(ngModel)]="warName" title="Enter warehouse name">
+                <!-- <div [hidden]="!war.errors?.['required']" class="alert alert-danger">
+                    This field is required.
+                </div> -->
+            </td>
+        </tr>
+    
+        <tr>
+            <td>
+                <button type="button" (click)="addWarehouse()">Add</button>
+            </td>
+            <td>{{messageWar}}</td>
+        </tr>
+        </table>
+      </div>
+      </div>
+
+      <div *ngIf="isCashRegisters">
+        <table>
+          <tr>
+            <th>idReg</th>
+            <th>Location</th>
+            <th>Type</th>
+          </tr>
+          <tr *ngFor="let r of allRegisters">
+            <td>{{r.idReg}}</td>
+            <td>{{r.location}}</td>
+            <td>{{r.type}}</td>
+            <td>
+              <button type="button" (click)="deleteRegister(r.idReg)">Delete</button>
+            </td>
+          </tr>
+        </table>
+        {{message}}
+
+        <div class="right-borded">
+        <table>
+          <h2>Insert a cash register:</h2>
+          <tr>
+            <th>Location of register:</th>
+            <td>
+                <input type="text" name="registers2" [(ngModel)]="locationOfRegister" title="Enter a location">
+            </td>
+        </tr>
+    
+        <tr>
+            <th>Type of register:</th>
+            <td>
+                <select name="reg" [(ngModel)]="typeOfRegister">
+                    <option value="obicna">Obicna</option>
+                    <option value="e-kasa">E-kasa</option>
+                    <option value="specijalna">Specijalna</option>
+                </select>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <button type="button" (click)="addRegister()">Add</button>
+            </td>
+            <td>{{messageReg}}</td>          
+        </tr>
+        </table>
+      </div>
+      </div>
+      
+</div>  <!--End of see all info -->
+
+<div *ngIf="isOrderers">
+  <h2>Search for your new orderer:</h2>
+
+  <input type="text" name="search" [(ngModel)]="searchParam">
+  <br />
+  <button (click)="search()">Search</button>
+  <br />
+  Companies: <select [(ngModel)]="selectedIdCom">
+      <option *ngFor="let n of searchedCompanies" value="{{n.idCom}}">{{n.comname}}</option>
+  </select>
+  <br />
+  Number of days:
+  <input type="text" name="days" [(ngModel)]="numOfDays" #day="ngModel" pattern="^[0-9]+$">
+    <div [hidden]="!day.errors?.['pattern']" class="alert alert-danger">
+      Enter a number!
+    </div>
+  <br />
+  Discount(%):
+  <input type="text" name="discount" [(ngModel)]="discount" #dis="ngModel" pattern="^[0-9]+$">
+    <div [hidden]="!dis.errors?.['pattern']" class="alert alert-danger">
+      Enter a number!
+    </div>
+  <br />
+  <button (click)="addOrderer()">Add orderer</button>
+  {{messageO}}
+<hr />
+<h2>Add new orderer:</h2>
+<form (ngSubmit)="register()" #submitform="ngForm">
+  <table>
+      <tr>
+          <th>Firstname:</th>
+          <td>
+              <input type="text" name="firstname" required [(ngModel)]="firstname" #fname="ngModel" ngModel pattern="^[a-zA-Z]+$">
+              <div [hidden]="!fname.errors?.['pattern']" class="alert alert-danger">
+                  It contains only letters.
+              </div>
+              <div [hidden]="!fname.errors?.['required']" class="alert alert-danger">
+                  This field is required.
+              </div>
+          </td>
+      </tr>
+      <tr>
+          <th>Lastname:</th>
+          <td>
+              <input type="text" name="lastname" required [(ngModel)]="lastname" #lname="ngModel" ngModel pattern="^[a-zA-Z]+$">
+              <div [hidden]="!lname.errors?.['pattern']" class="alert alert-danger">
+                  It contains only letters.
+              </div>
+              <div [hidden]="!lname.errors?.['required']" class="alert alert-danger">
+                  This field is required.
+              </div>
+          </td>        
+      </tr>
+      <tr>
+          <th>Username:</th>
+          <td>
+              <input type="text" name="username" required [(ngModel)]="username" #uname="ngModel">
+              <div [hidden]="!uname.errors?.['required']" class="alert alert-danger">
+                  This field is required.
+              </div>
+          </td>
+    
+      </tr>
+      <tr>
+          <th>Password:</th>
+          <td>
+              <input type="password" name="passwordone" [(ngModel)]="password1" #newPass="ngModel" required minlength="8" maxlength="12"
+              ngModel pattern="^(?=^[a-zA-Z].*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[^a-zA-Z0-9])(?!.*\s).{8,12}$">
+              <div [hidden]="!newPass.errors?.['pattern']" class="alert alert-danger">
+                  It needs to start with a letter and contain one big letter, one number and one special character.
+              </div>
+              <div [hidden]="!newPass.errors?.['required']" class="alert alert-danger">
+                  This field is required.
+              </div>
+              <div [hidden]="!newPass.errors?.['minlength']">
+                  New password must be at least 8 characters long.
+              </div>
+              <div [hidden]="!newPass.errors?.['maxlength']">
+                  New password must be at most 12 characters long.
+              </div> 
+          </td>
+               
+      </tr>
+      <tr>
+          <th>Reenter Password:</th>
+          <td>
+              <input type="password" name="passwordtwo" [(ngModel)]="password2"  #confirmPass="ngModel" required minlength="8" maxlength="12"
+              ngModel pattern="^(?=^[a-zA-Z].*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[^a-zA-Z0-9])(?!.*\s).{8,12}$">
+              <div [hidden]="!confirmPass.errors?.['pattern']" class="alert alert-danger">
+                  It needs to start with a letter and contain one big letter, one number and one special character.
+              </div>
+              <div [hidden]="!confirmPass.errors?.['required']" class="alert alert-danger">
+                  This field is required.
+              </div>
+              <div [hidden]="!confirmPass.errors?.['minlength']">
+                  New password must be at least 8 characters long.
+              </div>
+              <div [hidden]="!confirmPass.errors?.['maxlength']">
+                  New password must be at most 12 characters long.
+              </div> 
+          </td>        
+      </tr>
+      <tr>
+          <th>Phone:</th>
+          <td>
+              <input type="text" name="pho" required [(ngModel)]="phone" #phone1="ngModel" pattern="[- +()0-9]{6,}"
+              minlength="6">
+              <div [hidden]="!phone1.errors?.['required']" class="alert alert-danger">
+                  This field is required.
+              </div>
+              <div [hidden]="!phone1.errors?.['pattern']" class="alert alert-danger">
+                  It needs to have at least 6 numbers, and cannot contain letters.
+              </div>
+          </td>        
+      </tr>
+      <tr>
+          <th>Email:</th>
+          <td>
+              <input type="text" name="emai" [(ngModel)]="email" required #email1="ngModel" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$">
+              <div [hidden]="!email1.errors?.['required']" class="alert alert-danger">
+                  This field is required.
+              </div>
+              <div [hidden]="!email1.errors?.['pattern']" class="alert alert-danger">
+                  Format of email is invalid.
+              </div>
+          </td>        
+      </tr>
+      <tr>
+          <th>Company name:</th>
+          <td>
+              <input type="text" name="comname" required [(ngModel)]="comname" #cname="ngModel">
+              <div [hidden]="!cname.errors?.['required']" class="alert alert-danger">
+                  This field is required.
+              </div>
+          </td>        
+      </tr>
+      <tr>
+          <th>Address:</th>
+          <td>
+              <input type="text" name="address" required [(ngModel)]="address" #add="ngModel" pattern="^[a-zA-z]+,[ a-zA-z]+,[ 0-9]+,.*$">
+              <div [hidden]="!add.errors?.['required']" class="alert alert-danger">
+                  This field is required.
+              </div>
+              <div [hidden]="!add.errors?.['pattern']" class="alert alert-danger">
+                  Format of address is invalid.
+              </div>
+          </td>        
+      </tr>
+      <tr>
+          <th>PIB:</th>
+          <td>
+              <input type="text" name="pib" required [(ngModel)]="pib" ngModel pattern="^[1-9]{1}[0-9]{8}" #p="ngModel" maxlength="9">
+              <div [hidden]="!p.errors?.['pattern']" class="alert alert-danger">
+                  It contains 9 digits and it can't start with 0.
+              </div>
+              <div [hidden]="!p.errors?.['required']" class="alert alert-danger">
+                  This field is required.
+              </div>
+          </td>        
+      </tr>
+      <tr>
+          <th>Company unique number:</th>
+          <td>
+              <input type="text" name="comnumber" required [(ngModel)]="comnumber" #cnumber="ngModel" #uninum="ngModel" pattern="^[0-9]+$">
+              <div [hidden]="!uninum.errors?.['required']" class="alert alert-danger">
+                  This field is required.
+              </div>
+              <div [hidden]="!uninum.errors?.['pattern']" class="alert alert-danger">
+                  Enter a number!
+              </div>
+          </td>        
+      </tr>
+      <tr>
+          <th>Select Image</th>
+          <td>
+          <label class="image-upload-container btn btn-bwm">
+  
+              <input #imageInput
+                     type="file"
+                     accept="image/*"
+                      > 
+          </label>
+          </td>
+      </tr>
+      <tr>
+        <th>Number of days:</th>
+        <td>
+          <input type="text" name="days" [(ngModel)]="numOfDays" #day="ngModel" pattern="^[0-9]+$">
+          <div [hidden]="!day.errors?.['pattern']" class="alert alert-danger">
+            Enter a number!
+          </div>
+        </td>
+      </tr>
+      <tr>
+        <th>Discount(%):</th>
+        <td>
+          <input type="text" name="discount" [(ngModel)]="discount" #dis="ngModel" pattern="^[0-9]+$">
+          <div [hidden]="!dis.errors?.['pattern']" class="alert alert-danger">
+            Enter a number!
+          </div>
+        </td>
+      </tr>
+
+      <tr>
+          <td>
+              <button type="submit" class="btn btn-success" [disabled]="!submitform.form.valid">Add orderer</button>
+          </td>  
+          <td>{{message}}</td>
+      </tr>
+  </table>
+
+  </form>
+</div>
+
+<div *ngIf="isGoodsAndServices">
+  <br>
+  <button class="button1" (click)="allItemsButton()">All items</button>
+  <button class="button1" (click)="companyItems()">Company items</button>
+  <table>
+    <tr>
+      <th>Image</th>
+      <th>Item Cipher</th>
+      <th>Name</th>
+      <th>Unit Of Measure</th>
+      <th>TaxRate</th>
+      <th>Type</th>
+      <th>Origin Country</th>
+      <th>ForeignName</th>
+      <th>BarCode</th>
+      <th>Manufacturer</th>
+      <th>Customs Tariff</th>
+      <th>Eco Tax</th>
+      <th>Excise Tax</th>
+      <th>Description</th>
+      <th>Declaration</th>
+      <th>Category</th>
+      <th>Subcategory</th>
+      <th>Action</th>
+    </tr>
+
+  <tr *ngFor="let i of selectedItems | paginate: {id: 'pagination1', itemsPerPage: itemsPerPage, currentPage: page }">
+    <td>
+      <img src="{{i.image}}" alt="no picture">
+    </td>
+    <td>{{i.itemCipher}}</td>
+    <td>{{i.itemName}}</td>
+    <td>{{i.unitOfMeasure}}</td>
+    <td>{{i.taxRate}}</td>
+    <td>{{i.type}}</td>
+    <td>{{i.originCountry}}</td>
+    <td>{{i.foreignName}}</td>
+    <td>{{i.barCode}}</td>
+    <td>{{i.nameOfManufacturer}}</td>
+    <td>{{i.customsTariff}}</td>
+    <td>{{i.ecoTax}}</td>
+    <td>{{i.exciseTax}}</td>
+    <td>{{i.description}}</td>
+    <td>{{i.declaration}}</td>
+    <td>
+      <div *ngFor="let cate of i.category">
+        {{cate.name}}
+      </div>
+    </td>
+    <td>
+      <div *ngFor="let cate of i.category">
+        {{cate.subcategory}}
+      </div>
+    </td>
+    <td> 
+      <button *ngIf="!isAllItems" (click)="showEditForm(i)">Edit</button>
+      <button *ngIf="isAllItems" (click)="addItemToCompany(i)">Add item</button>
+      <button *ngIf="!isAllItems" (click)="deleteItem(i)">Delete</button>
+    </td>
+  </tr>
+  {{messageTable}}
+</table>
+  <pagination-controls id="pagination1" previousLabel="Prev" nextLabel="Next" (pageChange)="page = $event"></pagination-controls>
+<hr />
+<mat-tab-group class="matTabs" (selectedTabChange)="onChange2($event)">
+  <mat-tab label="Enter informations" class="matMenuFont" ></mat-tab>
+  <mat-tab label="Prices and condition of goods" class="matMenuFont"></mat-tab>
+</mat-tab-group>
+
+<div *ngIf="isGeneralInfo">
+  <form (ngSubmit)="addItem()" #submitform="ngForm">
+    <table>
+        <tr>
+            <th>Item Cipher:</th>
+            <td>
+                <input type="text" name="cipher" required [(ngModel)]="itemCipher" #cip="ngModel" pattern="^[ 0-9]+$">
+                <div [hidden]="!cip.errors?.['pattern']" class="alert alert-danger">
+                    It contains only numbers.
+                </div>
+                <div [hidden]="!cip.errors?.['required']" class="alert alert-danger">
+                    This field is required.
+                </div>
+            </td>
+        </tr>
+        <tr>
+            <th>Name:</th>
+            <td>
+                <input type="text" name="n" required [(ngModel)]="itemName" #n="ngModel" pattern="^[a-z A-Z]+$">
+                <div [hidden]="!n.errors?.['pattern']" class="alert alert-danger">
+                    It contains only letters.
+                </div>
+                <div [hidden]="!n.errors?.['required']" class="alert alert-danger">
+                    This field is required.
+                </div>
+            </td>        
+        </tr>
+        <tr>
+            <th>Unit Of Measure:</th>
+            <td>
+                <input type="text" name="unit" required [(ngModel)]="unitOfMeasure" #unit="ngModel">
+                <div [hidden]="!unit.errors?.['required']" class="alert alert-danger">
+                    This field is required.
+                </div>
+            </td>
+      
+        </tr>
+        <tr>
+            <th>Tax Rate:</th>
+            <td>
+                <select type="checkbox" name="taxRate" [(ngModel)]="taxRate">
+                  <option value="opsta">20%</option>
+                  <option value="posebna">10%</option>
+                  <option value="nema">0%</option>
+                </select>
+            </td>
+                 
+        </tr>
+        <tr *ngIf="ugostitelj">
+            <th>Type:</th>
+            <td>
+              <input type="radio" id="food" name="type" value="hrana" [(ngModel)]="type">
+              <label for="food">Hrana</label><br>
+              <input type="radio" id="drink" name="type" value="pice" [(ngModel)]="type">
+              <label for="drink">Pice</label><br>
+              <input type="radio" id="raw" name="type" value="sirovina" [(ngModel)]="type">
+              <label for="raw">Sirovina</label> 
+            </td>        
+        </tr>
+        
+      <tr>
+        <th>Origin country:</th>
+        <td>
+            <input type="text" name="origin" [(ngModel)]="originCountry" #origin="ngModel" pattern="^[a-z A-Z]+$">
+            <div [hidden]="!origin.errors?.['pattern']" class="alert alert-danger">
+                It contains only letters.
+            </div>
+        </td>        
+    </tr>
+    <tr>
+        <th>Foreign name:</th>
+        <td>
+            <input type="text" name="foreign" [(ngModel)]="foreignName" #foreign="ngModel" pattern="^[a-z A-Z]+$">
+            <div [hidden]="!foreign.errors?.['pattern']" class="alert alert-danger">
+                It contains only letters.
+            </div>
+        </td>        
+    </tr>
+    <tr>
+        <th>Bar code:</th>
+        <td>
+            <input type="text" name="code" [(ngModel)]="barCode" #code="ngModel" pattern="^[ 0-9]+$">
+            <div [hidden]="!code.errors?.['pattern']" class="alert alert-danger">
+              It contains only numbers.
+          </div>
+        </td>        
+    </tr>
+    <tr>
+        <th>Name of manufacturer:</th>
+        <td>
+            <input type="text" name="manufacturer" [(ngModel)]="nameOfManufacturer" #manufacturer="ngModel" pattern="^[a-z A-Z]+$">
+            <div [hidden]="!manufacturer.errors?.['pattern']" class="alert alert-danger">
+                It contains only letters.
+            </div>
+        </td>        
+    </tr>
+    <tr>
+        <th>Customs tariff(in %):</th>
+        <td>
+            <input type="text" name="custom" [(ngModel)]="customsTariff" pattern="^[0-9]+$" #custom="ngModel">
+            <div [hidden]="!custom.errors?.['pattern']" class="alert alert-danger">
+                Enter a number.
+            </div>
+        </td>        
+    </tr>
+    <tr>
+        <th>Eco tax and Excise tax:</th>
+        <td>
+          <label>
+            <input type="checkbox" name="etax" [(ngModel)]="ecoTax">Eco tax
+          </label>
+          <label>
+            <input type="checkbox" name="extax" [(ngModel)]="exciseTax">Excise tax
+          </label>
+        </td>        
+    </tr>
+    <tr>
+      <th>Minimum desired stock:</th>
+      <td>
+        <input type="text" name="min" [(ngModel)]="minStock" #min="ngModel" pattern="^[0-9]+$">
+        <div [hidden]="!min.errors?.['pattern']" class="alert alert-danger">
+          Enter a number.
+      </div>
+      </td>
+    </tr>
+    <tr>
+    <th>Maximum desired stock:</th>
+      <td>
+        <input type="text" name="max" [(ngModel)]="maxStock" #max="ngModel" pattern="^[0-9]+$">
+        <div [hidden]="!max.errors?.['pattern']" class="alert alert-danger">
+          Enter a number.
+      </div>
+      </td>
+    </tr>
+    <tr>
+        <th>Description:</th>
+        <td>
+          <input type="text" name="desc" [(ngModel)]="description">
+        </td>
+    </tr>
+    <tr>
+      <th>Declaration:</th>
+      <td>
+        <input type="text" name="decl" [(ngModel)]="declaration">
+      </td>
+  </tr>
+  <tr>
+    <th>Select Image:</th>
+    <td>
+    <label class="image-upload-container btn btn-bwm">
+
+        <input #imageInput
+               type="file"
+                accept=".png, .jpg"
+               (change)="processFile(imageInput)">
+    </label>
+    </td>
+</tr>
+    <tr>      
+        <td>
+            <button type="submit" class="btn btn-success" [disabled]="!submitform.form.valid">Add/Update item</button>
+        </td> 
+        {{message}}
+    </tr>
+
+  </table>
+
+  </form>
+  </div>  <!--End of general info-->
+
+  <div *ngIf="isPricesAndConditions">
+    <h2>Warehouses:</h2>
+    <table>
+      <tr>
+        <th>Name</th>
+        <th>Name of Item</th>
+        <th>Purchase price</th>
+        <th>Selling price</th>
+        <th>Current Stock</th>
+        <th>Min Wanted Stock</th>
+        <th>Max Wanted Stock</th>
+      </tr>
+  
+    <tr *ngFor="let w of allWarehouses | paginate: {id:'pagination2', itemsPerPage: itemsPerPage, currentPage: page }">
+      <td>{{w.name}}</td>
+      <td>
+        <dl *ngFor="let it of w.itemsInfo">
+          <dt>{{it.name}}</dt>
+        </dl>
+      </td>
+      <td>
+        <dl *ngFor="let it of w.itemsInfo">
+          <dt>{{it.purchasePrice}}</dt>
+        </dl>
+      </td>
+      <td>
+        <dl *ngFor="let it of w.itemsInfo">
+          <dt>{{it.sellingPrice}}</dt>
+        </dl>
+      </td>
+      <td>
+        <dl *ngFor="let it of w.itemsInfo">
+          <dt>{{it.currentStock}}</dt>
+        </dl>
+      </td>
+      <td>
+        <dl *ngFor="let it of w.itemsInfo">
+          <dt>{{it.minWantedStock}}</dt>
+        </dl>
+      </td>
+      <td>
+        <dl *ngFor="let it of w.itemsInfo">
+          <dt>{{it.maxWantedStock}}</dt>
+        </dl>
+      </td>
+      </tr>
+  </table>
+  <pagination-controls id="pagination2" previousLabel="Prev" nextLabel="Next" (pageChange)="page = $event"></pagination-controls>
+  </div>  <!--End of Prices and conditions-->
+
+</div>
+
+<div *ngIf="isOrderOfArticles">
+  <h2>Make a Category and subcategory:</h2>
+  <form (ngSubmit)="addCategory()" #submitform="ngForm">
+    <table>
+      <tr>
+          <th>Name:</th>
+          <td>
+              <input type="text" name="n" required [(ngModel)]="catName" #n="ngModel" pattern="^[a-z A-Z]+$">
+              <div [hidden]="!n.errors?.['pattern']" class="alert alert-danger">
+                  It contains only letters.
+              </div>
+              <div [hidden]="!n.errors?.['required']" class="alert alert-danger">
+                  This field is required.
+              </div>
+          </td>        
+      </tr>
+      <tr>
+        <h2>Add subcategories:</h2>
+    <tr>
+        <th>Name:</th>
+        <td>
+            <input type="text" name="category" [(ngModel)]="subcategory" title="Enter a subcategory">
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <button type="button" (click)="addSubcategory()">Add subcategory</button>
+        </td>
+        <td>{{messageCat}}</td>
+    </tr>
+    <tr>
+      <td>
+        <button type="submit" [disabled]="!submitform.form.valid">Add category</button>
+      </td>
+    </tr>
+    </table>
+    {{message}}
+  </form>
+  <button (click)="openDialog()">Assign Item to category</button>
+</div>  <!-- End of Order of Articles -->
+
+<div [hidden]="!isOrderOfTables">
+  <select [(ngModel)]="selectedObjectId" (change)="changeObject()">
+    <option *ngFor="let w of allWarehouses" value="{{w.idWar}}">{{w.name}}</option>
+  </select>
+  <br />
+  <h3>Departments:</h3>
+  <button name="but" class="button1" *ngFor="let department of selectedObject.departments" (click)="changeDepartment(department)">{{department}}</button>
+  <button (click)="addDepartment()">Add Department</button>
+  <br />
+  <button (click)="openAddTableDialog()">Add Table</button>
+  <br />
+  <canvas #canvas width="600" height="500" style="border:1px solid #000000;">
+  </canvas>
+</div>
+
+<div *ngIf="isInvoicing">
+  <table>
+    <tr>
+      <th>Item name</th>
+      <th>Item price</th>
+      <th>Item amount</th>
+      <th>PDV percent</th>
+      <th>Total Value</th>
+      <th>Company Name</th>
+      <th>Object Name</th>
+      <th>Department of Table</th>
+      <th>Table number</th>
+      <th>Action</th>
+    </tr>
+
+  <tr *ngFor="let i of allUnclosedReceipts | paginate: {id: 'pagination1', itemsPerPage: itemsPerPage, currentPage: page }">
+    <td>
+      <div *ngFor="let it of i.items">
+        {{it.itemName}}
+      </div>
+    </td>
+    <td>
+      <div *ngFor="let it of i.items">
+        {{it.price}}
+      </div>
+    </td>
+    <td>
+      <div *ngFor="let it of i.items">
+        {{it.amount}}
+      </div>
+    </td>
+    <td>
+      <div *ngFor="let it of i.items">
+        {{it.pdvPercent}}
+      </div>
+    </td>
+    <td>{{i.totalValue}}</td>
+    <td>{{i.nameOfCompany}}</td>
+    <td>{{i.tableObject}}</td>
+    <td>{{i.tableDepartment}}</td>
+    <td>{{i.tableId}}</td>
+    <td> 
+      <button (click)="addItemToReceipt(i)">Add Item</button>
+      <button (click)="closeReceipt(i)">Close</button>
+    </td>
+  </tr>
+</table>
+{{message}}
+  <pagination-controls id="pagination1" previousLabel="Prev" nextLabel="Next" (pageChange)="page = $event"></pagination-controls>
+<hr />
+<h2>Add new receipt:</h2>
+<form (ngSubmit)="addReceipt()" #submitform="ngForm">
+  <table>
+      <tr>
+          <th>Name of object:</th>
+          <td>
+            <select name="obj" [(ngModel)]="selectedObjectId">
+              <option *ngFor="let w of allWarehouses" value="{{w.idWar}}">{{w.name}}</option>
+            </select>
+          </td>
+      </tr>
+      <tr>
+          <td>
+              <button type="submit" class="btn btn-success" [disabled]="!submitform.form.valid">Add receipt</button>
+          </td>  
+          <td>{{messageAdd}}</td>
+      </tr>
+  </table>
+
+  </form>
+</div>
+
+<div *ngIf="isReportReview">
+  <table>
+    <tr>
+      <th>Total Value</th>
+      <th>Company Name</th>
+      <th>Object Name</th>
+      <th>Department of Table</th>
+      <th>Action</th>
+    </tr>
+
+  <tr *ngFor="let i of allTodayClosedReceipts | paginate: {id: 'pagination1', itemsPerPage: itemsPerPage, currentPage: page }">
+    <td>{{i.totalValue}}</td>
+    <td>{{i.nameOfCompany}}</td>
+    <td>{{i.tableObject}}</td>
+    <td>{{i.tableDepartment}}</td>
+    
+    <td> 
+      <a class="link1" (click)="showDetails(i)">Show details</a>
+    </td>
+  </tr>
+  {{messageTable}}
+</table>
+  <pagination-controls id="pagination1" previousLabel="Prev" nextLabel="Next" (pageChange)="page = $event"></pagination-controls>
+<hr />
+<div *ngIf="isShowDetails">
+  <table>
+    <tr>
+      <th>Item name</th>
+      <th>Item price</th>
+      <th>Item amount</th>
+      <th>PDV percent</th>
+    </tr>
+  <tr *ngFor="let i of selectedReceipt.items">
+    <td>
+        {{i.itemName}}
+    </td>
+    <td>
+        {{i.price}}
+    </td>
+    <td>
+        {{i.amount}}
+    </td>
+    <td>
+        {{i.pdvPercent}}
+    </td>
+  </tr>
+  </table>
+</div>
+</div>

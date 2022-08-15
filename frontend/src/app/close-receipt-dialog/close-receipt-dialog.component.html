@@ -1,0 +1,109 @@
+<h2>Close receipt:</h2>
+<form (ngSubmit)="closeReceipt()" #submitform="ngForm">
+  <table>
+    <tr>
+        <th>Choose method of payment:</th>
+        <td>
+            <input type="radio" id="r1" name="method" value="gotovina" [(ngModel)]="methodOfPayment">
+            <label for="r1">Cash</label>
+            <input type="radio" id="r2" name="method" value="cek" [(ngModel)]="methodOfPayment">
+            <label for="r2">Check</label>
+            <input type="radio" id="r3" name="method" value="kartica" [(ngModel)]="methodOfPayment">
+            <label for="r3">Credit Card</label>
+            <input type="radio" id="r4" name="method" value="virman" [(ngModel)]="methodOfPayment">
+            <label for="r4">Virman</label>
+        </td>        
+    </tr>
+    <tr>
+    <tr *ngIf="methodOfPayment=='gotovina'">
+        <th>Amount:</th>
+        
+        <td>
+            <input type="text" name="v" [(ngModel)]="value" required #v="ngModel" title="Enter customer value" pattern="^[0-9]+$">
+            <div [hidden]="!v.errors?.['pattern']" class="alert alert-danger">
+                Enter a number.
+            </div>
+            <div [hidden]="!v.errors?.['required']" class="alert alert-danger">
+                This field is required.
+            </div>
+        </td>
+        <th>Number of identity card:</th>
+        <td>
+            <input type="text" name="id" [(ngModel)]="idCard" title="Enter customer ID number">
+        </td>
+        {{change}}
+    </tr>
+    <div *ngIf="methodOfPayment=='cek'">
+        <tr>
+        <th>First Name:</th>
+        <td>
+            <input type="text" name="name" [(ngModel)]="firstname" required #name="ngModel" title="Enter customer firstname" pattern="^[a-z A-z]+$">
+            <div [hidden]="!name.errors?.['pattern']" class="alert alert-danger">
+                First name can only contain letters.
+            </div>
+            <div [hidden]="!name.errors?.['required']" class="alert alert-danger">
+                This field is required.
+            </div>
+        </td>
+        </tr>
+        <tr>
+        <th>Last Name:</th>
+
+        <td>
+            <input type="text" name="laname" [(ngModel)]="lastname" required #laname="ngModel" title="Enter customer lastname" pattern="^[a-z A-z]+$">
+            <div [hidden]="!laname.errors?.['pattern']" class="alert alert-danger">
+                Last name can only contain letters.
+            </div>
+            <div [hidden]="!laname.errors?.['required']" class="alert alert-danger">
+                This field is required.
+            </div>
+        </td>
+        </tr>
+        <tr>
+        <th>Number of identity card:</th>
+        <td>
+            <input type="text" name="id" [(ngModel)]="idCard" required #id="ngModel" title="Enter customer ID number">
+            <div [hidden]="!id.errors?.['required']" class="alert alert-danger">
+                This field is required.
+            </div>
+        </td>
+    </tr>
+    </div>
+    <tr *ngIf="methodOfPayment=='kartica'">
+        <th>Number of identity card:</th>
+        <td>
+            <input type="text" name="id" [(ngModel)]="idCard" required #id="ngModel" title="Enter customer ID number">
+            <div [hidden]="!id.errors?.['required']" class="alert alert-danger">
+                This field is required.
+            </div>
+        </td>
+        <th>Number of slip account:</th>
+        <td>
+            <input type="text" name="sl" [(ngModel)]="slip" required #sl="ngModel" title="Enter number of slip account">
+            <div [hidden]="!sl.errors?.['required']" class="alert alert-danger">
+                This field is required.
+            </div>
+        </td>
+    </tr>
+    <tr *ngIf="methodOfPayment=='virman'">
+        <th>Orderer:</th>
+        <td>
+            <select name="ord" [(ngModel)]="ordererId" required #ord="ngModel">
+                <option *ngFor="let o of allCompanies" value="{{o[0].idCom}}">{{o[0].comname}}</option>
+            </select>
+            <div [hidden]="!ord.errors?.['required']" class="alert alert-danger">
+                This field is required.
+            </div>
+        </td>
+    </tr>
+    <tr>
+        <!-- <td></td> -->
+        <td>
+            <button type="submit" [disabled]="!submitform.form.valid">Close receipt</button>
+
+        </td>
+    </tr>
+  </table>
+  {{message}}
+</form>
+<button style="float:right" (click)="onCancel()">Cancel</button>

@@ -1,0 +1,9 @@
+table, th, td {
+    border: 1px solid;
+}
+
+
+.close {
+  float: right;
+  padding: 2px;
+}

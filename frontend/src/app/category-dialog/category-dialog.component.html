@@ -1,0 +1,68 @@
+<button class="close" (click)="onCancel()">X</button>
+<h2>All Items:</h2>
+<table>
+    <tr>
+        <th>Item Cipher</th>
+        <th>Name</th>
+        <th>Unit Of Measure</th>
+        <th>TaxRate</th>
+        <th>Type</th>
+        <th>Origin Country</th>
+        <th>ForeignName</th>
+        <th>BarCode</th>
+        <th>Manufacturer</th>
+        <th>Customs Tariff</th>
+        <th>Eco Tax</th>
+        <th>Excise Tax</th>
+        <th>Description</th>
+        <th>Declaration</th>
+        <th>Category</th>
+        <th>Subcategory</th>
+        <th>Action</th>
+      </tr>
+      <tr *ngFor="let i of searchedItems | paginate: {id: 'pagination1', itemsPerPage: itemsPerPage, currentPage: page }">
+        <td>{{i.itemCipher}}</td>
+        <td>{{i.itemName}}</td>
+        <td>{{i.unitOfMeasure}}</td>
+        <td>{{i.taxRate}}</td>
+        <td>{{i.type}}</td>
+        <td>{{i.originCountry}}</td>
+        <td>{{i.foreignName}}</td>
+        <td>{{i.barCode}}</td>
+        <td>{{i.nameOfManufacturer}}</td>
+        <td>{{i.customsTariff}}</td>
+        <td>{{i.ecoTax}}</td>
+        <td>{{i.exciseTax}}</td>
+        <td>{{i.description}}</td>
+        <td>{{i.declaration}}</td>
+        <td>
+          <div *ngFor="let cate of i.category">
+            {{cate.name}}
+          </div>
+        </td>
+        <td>
+          <div *ngFor="let cate of i.category">
+            {{cate.subcategory}}
+          </div>
+        </td>
+        <td>
+          <button (click)="addToCategory(i)">Add to category</button>
+        </td>
+      </tr>
+</table>
+<pagination-controls id="pagination1" previousLabel="Prev" nextLabel="Next" (pageChange)="page = $event"></pagination-controls>
+
+{{message}}
+<br />
+Search: <input type="text" name="search" [(ngModel)]="itName" (input)="searchItems()">
+<br />
+Category:
+<select [(ngModel)]="categoryId" (ngModelChange)="categoryChanged()">
+  <option *ngFor="let c of allCategories" value="{{c.idCat}}">{{c.name}}</option>
+</select>
+<div *ngIf="isCategoryChanged">
+  Subcategory:
+  <select [(ngModel)]="subcategory" (ngModelChange)="subcategory = $event">
+    <option *ngFor="let cat of categoryObject.subcategories">{{cat}}</option>
+  </select>  
+</div>
