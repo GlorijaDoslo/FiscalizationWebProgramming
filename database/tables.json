@@ -1,0 +1,53 @@
+[
+	{
+		"idTab": 1,
+		"shape": "circle",
+		"xPos": 20,
+		"yPos": 30,
+		"radius": 40,
+		"occupied": false,
+		"department": "restoran",
+		"receiptId": 2,
+		"companyId": 3,
+		"objectId": 2
+	},
+	{
+		"idTab": 2,
+		"shape": "circle",
+		"xPos": 60,
+		"yPos": 60,
+		"radius": 20,
+		"occupied": true,
+		"department": "basta",
+		"receiptId": 1,
+		"companyId": 3,
+		"objectId": 1
+	},
+	{
+		"idTab": 3,
+		"shape": "rectangle",
+		"xPos": 100,
+		"yPos": 120,
+		"width": 10,
+		"length": 30,
+		"occupied": false,
+		"department": "basta",
+		"receiptId": 3,
+		"companyId": 3,
+		"objectId": 1
+	},
+	{
+		"idTab": 4,
+		"shape": "rectangle",
+		"xPos": 300,
+		"yPos": 320,
+		"width": 100,
+		"length": 150,
+		"occupied": true,
+		"department": "restoran",
+		"receiptId": 4,
+		"companyId": 3,
+		"objectId": 2
+	},
+	
+]

@@ -1,0 +1,48 @@
+[
+	{
+		"idCat": 1,
+		"name": "pice",
+		"subcategories": [
+			"sok",
+			"sirup",
+			"alkohol",
+			"mlecni napitak",
+			"energetsko pice",
+			"voda"
+		]
+	},
+	{
+		"idCat": 2,
+		"name": "hrana",
+		"subcategories": [
+			"voce",
+			"povrce",
+			"gotova jela",
+			"mlecni proizvodi",
+			"delikates",
+			"slatkisi",
+			"slanisi",
+			"mesni proizvodi"
+		]
+	},
+	{
+		"idCat": 3,
+		"name": "sirovina",
+		"subcategories": [
+			"suvo",
+			"tecno",
+			"zrnasto"
+		]
+	},
+	{
+		"idCat": 4,
+		"name": "higijena",
+		"subcategories": [
+			"za kuhinju",
+			"za kupatilo",
+			"licna",
+			"kozmetika"
+		]
+	}
+
+]

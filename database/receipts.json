@@ -1,0 +1,199 @@
+[
+	{
+		"idRec": 1,
+		"nameOfCompany": "Vladina kompanija",
+		"companyId": 1,
+		"isClosed": true,
+		"tableObject": "Veliki magacin",
+		"tableDepartment": "Restoran - sala",
+		"objectId": 1,
+		"tableId": 1,
+		"totalValue": 456,
+		"change": 44,
+		"customerValue": 500,
+		"dateOfReceipt": "2022-06-16",
+		"isPDV": true,
+		"paymentMethod": "gotovina",
+		"items": [
+			{
+				"itemId": 2,
+				"itemName": "Sladoled",
+				"price": 180,
+				"amount": 1,
+				"pdvPercent": 20
+			},
+			{
+				"itemId": 1,
+				"itemName": "cokolada",
+				"price": 100,
+				"amount": 2,
+				"pdvPercent": 20
+			}
+		]
+	},
+	{
+		"idRec": 2,
+		"nameOfCompany": "Vladina kompanija",
+		"companyId": 1,
+		"isClosed": true,
+		"tableObject": "Veliki magacin",
+		"tableDepartment": "Restoran - sala",
+		"objectId": 1,
+		"tableId": 1,
+		"totalValue": 456,
+		"change": 44,
+		"customerValue": 500,
+		"dateOfReceipt": "2022-06-16",
+		"isPDV": true,
+		"paymentMethod": "gotovina",
+		"items": [
+			{
+				"itemId": 2,
+				"itemName": "Sladoled",
+				"price": 180,
+				"amount": 1,
+				"pdvPercent": 20
+			},
+			{
+				"itemId": 1,
+				"itemName": "cokolada",
+				"price": 100,
+				"amount": 2,
+				"pdvPercent": 20
+			}
+		]
+	},
+	{
+		"idRec": 3,
+		"totalValue": 240,
+		"isPDV": true,
+		"paymentMethod": "kartica",
+		"customerValue": null,
+		"change": null,
+		"numLK": "332654521",
+		"firstname": null,
+		"lastname": null,
+		"slipAccount": "453434",
+		"ordererId": null,
+		"dateOfReceipt": "2022-06-17",
+		"nameOfCompany": "Vladina kompanija",
+		"companyId": 1,
+		"isClosed": true,
+		"tableObject": "Papir",
+		"objectId": 4,
+		"items": [
+			{
+				"itemId": 15,
+				"itemName": "Cola",
+				"price": 100,
+				"amount": 2,
+				"pdvPercent": 20,
+			}
+		]
+	},
+	{
+		"idRec": 4,
+		"totalValue": 216,
+		"isPDV": true,
+		"paymentMethod": "virman",
+		"customerValue": null,
+		"change": null,
+		"numLK": null,
+		"firstname": null,
+		"lastname": null,
+		"slipAccount": null,
+		"ordererId": 4,
+		"dateOfReceipt": "2022-06-17",
+		"nameOfCompany": "Vladina kompanija",
+		"companyId": 1,
+		"isClosed": true,
+		"tableObject": "Veliki magacin",
+		"objectId": 1,
+		"items": [
+			{
+				"itemId": 2,
+				"itemName": "Sladoled",
+				"price": 180,
+				"amount": 1,
+				"pdvPercent": 20,
+			}
+		]
+	},
+	{
+		"idRec": 5,
+		"totalValue": 1080,
+		"isPDV": true,
+		"paymentMethod": "gotovina",
+		"customerValue": 1200,
+		"change": 120,
+		"numLK": "569845989",
+		"firstname": null,
+		"lastname": null,
+		"slipAccount": null,
+		"ordererId": null,
+		"dateOfReceipt": "2022-06-17",
+		"nameOfCompany": "Vladina kompanija",
+		"companyId": 1,
+		"isClosed": true,
+		"tableObject": "Veliki magacin",
+		"objectId": 1,
+		"items": [
+			{
+				"itemId": 7,
+				"itemName": "kafa",
+				"price": 240,
+				"amount": 3,
+				"pdvPercent": 20
+			},
+			{
+				"itemId": 5,
+				"itemName": "cips",
+				"price": 90,
+				"amount": 2,
+				"pdvPercent": 20
+			}
+		]
+	},
+	{
+		"idRec": 6,
+		"totalValue": 1428,
+		"isPDV": true,
+		"paymentMethod": "cek",
+		"customerValue": null,
+		"change": null,
+		"numLK": "789542326",
+		"firstname": "Mirko",
+		"lastname": "Mirkovic",
+		"slipAccount": null,
+		"ordererId": null,
+		"dateOfReceipt": "2022-06-17",
+		"nameOfCompany": "Vladina kompanija",
+		"companyId": 1,
+		"isClosed": true,
+		"tableObject": "Papir",
+		"objectId": 4,
+		"items": [
+			{
+				"itemId": 12,
+				"itemName": "Nektar sok",
+				"price": 90,
+				"amount": 1,
+				"pdvPercent": 20
+			},
+			{
+				"itemId": 13,
+				"itemName": "Rakija",
+				"price": 800,
+				"amount": 1,
+				"pdvPercent": 20
+			},
+			{
+				"itemId": 11,
+				"itemName": "Pivo",
+				"price": 60,
+				"amount": 5,
+				"pdvPercent": 20
+			}
+		]
+	}
+]

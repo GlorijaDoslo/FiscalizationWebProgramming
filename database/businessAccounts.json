@@ -1,0 +1,33 @@
+[
+	{
+		"idAcc": 1,
+		"accNum": "435-567845676434-51",
+		"bank": "Unicredit",
+		"companyId": 1
+	},
+	{
+		"idAcc": 2,
+		"accNum": "654-468324957852-21",
+		"bank": "Eurobank",
+		"companyId": 3
+	},
+	{
+		"idAcc": 3,
+		"accNum": "698-563214865985-66",
+		"bank": "Credit Agricole",
+		"companyId": 1
+	},
+	{
+		"idAcc": 4,
+		"accNum": "265-653659587956-98",
+		"bank": "Eurobank",
+		"companyId": 3
+	},
+	{
+		"idAcc": 5,
+		"accNum": "986-568798896536-87",
+		"bank": "Intesa",
+		"companyId": 2
+	}
+
+]

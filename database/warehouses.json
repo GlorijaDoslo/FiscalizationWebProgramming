@@ -1,0 +1,980 @@
+[
+	{
+		"idWar": 1,
+		"name": "Veliki magacin",
+		"companyId": 1,
+		"itemsInfo": [
+			{
+				"idIte": 1,
+				"name": "cokolada",
+				"purchasePrice": 80,
+				"sellingPrice": 100,
+				"currentStock": 50,
+				"minWantedStock": 500,
+				"maxWantedStock": 1000
+			},
+			{
+				"idIte": 2,
+				"name": "Sladoled",
+				"purchasePrice": 150,
+				"sellingPrice": 180,
+				"currentStock": 400,
+				"minWantedStock": 300,
+				"maxWantedStock": 600
+			},
+			{
+				"idIte": 5,
+				"name": "cips",
+				"purchasePrice": 70,
+				"sellingPrice": 90,
+				"currentStock": 450,
+				"minWantedStock": 700,
+				"maxWantedStock": 1500
+			},
+			{
+				"idIte": 7,
+				"name": "kafa",
+				"purchasePrice": 200,
+				"sellingPrice": 240,
+				"currentStock": 300,
+				"minWantedStock": 700,
+				"maxWantedStock": 1200
+			}
+		]
+	},
+	{
+		"idWar": 2,
+		"name": "Mali magacin",
+		"companyId": 2,
+		"itemsInfo": [
+			{
+				"idIte": 3,
+				"name": "Bombone",
+				"purchasePrice": 70,
+				"sellingPrice": 90,
+				"currentStock": 300,
+				"minWantedStock": 200,
+				"maxWantedStock": 500
+			},
+			{
+				"idIte": 6,
+				"name": "smoki",
+				"purchasePrice": 50,
+				"sellingPrice": 60,
+				"currentStock": 500,
+				"minWantedStock": 800,
+				"maxWantedStock": 1500
+			},
+			{
+				"idIte": 4,
+				"name": "Keksici",
+				"purchasePrice": 90,
+				"sellingPrice": 110,
+				"currentStock": 500,
+				"minWantedStock": 300,
+				"maxWantedStock": 600
+			},
+			{
+				"idIte": 8,
+				"name": "secer",
+				"purchasePrice": 80,
+				"sellingPrice": 90,
+				"currentStock": 1000,
+				"minWantedStock": 1500,
+				"maxWantedStock": 3000
+			},
+			{
+				"idIte": 9,
+				"name": "So",
+				"purchasePrice": 50,
+				"sellingPrice": 60,
+				"currentStock": 800,
+				"minWantedStock": 700,
+				"maxWantedStock": 2000
+			}
+
+		]
+	},
+	{
+		"idWar": 3,
+		"name": "Sunce",
+		"companyId": 3,
+		"itemsInfo": [
+			{
+				"idIte": 10,
+				"name": "Hrana za bebe",
+				"purchasePrice": 110,
+				"sellingPrice": 120,
+				"currentStock": 300,
+				"minWantedStock": 200,
+				"maxWantedStock": 500
+			},
+			{
+				"idIte": 1,
+				"name": "cokolada",
+				"purchasePrice": 80,
+				"sellingPrice": 100,
+				"currentStock": 50,
+				"minWantedStock": 500,
+				"maxWantedStock": 1000
+			},
+			{
+				"idIte": 2,
+				"name": "Sladoled",
+				"purchasePrice": 150,
+				"sellingPrice": 180,
+				"currentStock": 400,
+				"minWantedStock": 300,
+				"maxWantedStock": 600
+			},
+			{
+				"idIte": 5,
+				"name": "cips",
+				"purchasePrice": 70,
+				"sellingPrice": 90,
+				"currentStock": 450,
+				"minWantedStock": 700,
+				"maxWantedStock": 1500
+			},
+			{
+				"idIte": 7,
+				"name": "kafa",
+				"purchasePrice": 200,
+				"sellingPrice": 240,
+				"currentStock": 300,
+				"minWantedStock": 700,
+				"maxWantedStock": 1200
+			},
+			{
+				"idIte": 6,
+				"name": "smoki",
+				"purchasePrice": 50,
+				"sellingPrice": 60,
+				"currentStock": 500,
+				"minWantedStock": 800,
+				"maxWantedStock": 1500
+			},
+			{
+				"idIte": 4,
+				"name": "Keksici",
+				"purchasePrice": 90,
+				"sellingPrice": 110,
+				"currentStock": 500,
+				"minWantedStock": 300,
+				"maxWantedStock": 600
+			},
+			{
+				"idIte": 8,
+				"name": "secer",
+				"purchasePrice": 80,
+				"sellingPrice": 90,
+				"currentStock": 1000,
+				"minWantedStock": 1500,
+				"maxWantedStock": 3000
+			}
+		]
+	},
+	{
+		"idWar": 4,
+		"name": "Papir",
+		"companyId": 1,
+		"itemsInfo": [
+			{
+				"idIte": 11,
+				"name": "Pivo",
+				"purchasePrice": 50,
+				"sellingPrice": 60,
+				"currentStock": 900,
+				"minWantedStock": 700,
+				"maxWantedStock": 2000
+			},
+			{
+				"idIte": 12,
+				"name": "Nektar sok",
+				"purchasePrice": 70,
+				"sellingPrice": 90,
+				"currentStock": 300,
+				"minWantedStock": 600,
+				"maxWantedStock": 1500
+			},
+			{
+				"idIte": 13,
+				"name": "Rakija",
+				"purchasePrice": 600,
+				"sellingPrice": 800,
+				"currentStock": 350,
+				"minWantedStock": 300,
+				"maxWantedStock": 900
+			},
+			{
+				"idIte": 15,
+				"name": "Cola",
+				"purchasePrice": 80,
+				"sellingPrice": 100,
+				"currentStock": 800,
+				"minWantedStock": 700,
+				"maxWantedStock": 1500
+			}
+
+		]
+	},
+	{
+		"idWar": 5,
+		"name": "Kockica",
+		"companyId": 2,
+		"itemsInfo": [
+			{
+				"idIte": 14,
+				"name": "Mleko",
+				"purchasePrice": 80,
+				"sellingPrice": 90,
+				"currentStock": 300,
+				"minWantedStock": 200,
+				"maxWantedStock": 800
+			},
+			{
+				"idIte": 10,
+				"name": "Hrana za bebe",
+				"purchasePrice": 90,
+				"sellingPrice": 110,
+				"currentStock": 500,
+				"minWantedStock": 300,
+				"maxWantedStock": 600
+			},
+			{
+				"idIte": 12,
+				"name": "Nektar sok",
+				"purchasePrice": 100,
+				"sellingPrice": 120,
+				"currentStock": 500,
+				"minWantedStock": 300,
+				"maxWantedStock": 600
+			},
+			{
+				"idIte": 17,
+				"name": "Caj",
+				"purchasePrice": 50,
+				"sellingPrice": 60,
+				"currentStock": 500,
+				"minWantedStock": 300,
+				"maxWantedStock": 600
+			},
+			{
+				"idIte": 35,
+				"name": "kiselo mleko",
+				"purchasePrice": 30,
+				"sellingPrice": 35,
+				"currentStock": 500,
+				"minWantedStock": 300,
+				"maxWantedStock": 600
+			},
+			{
+				"idIte": 36,
+				"name": "jogurt",
+				"purchasePrice": 90,
+				"sellingPrice": 110,
+				"currentStock": 500,
+				"minWantedStock": 300,
+				"maxWantedStock": 600
+			},
+			{
+				"idIte": 40,
+				"name": "grcki jogurt",
+				"purchasePrice": 120,
+				"sellingPrice": 140,
+				"currentStock": 400,
+				"minWantedStock": 300,
+				"maxWantedStock": 500
+			}
+
+		]
+	},
+	{
+		"idWar": 6,
+		"name": "Zasticeni magacin",
+		"companyId": 2,
+		"itemsInfo": [
+			{
+				"idIte": 16,
+				"name": "Vino",
+				"purchasePrice": 300,
+				"sellingPrice": 450,
+				"currentStock": 300,
+				"minWantedStock": 200,
+				"maxWantedStock": 500
+			},
+			{
+				"idIte": 38,
+				"name": "Fanta",
+				"purchasePrice": 100,
+				"sellingPrice": 120,
+				"currentStock": 300,
+				"minWantedStock": 500,
+				"maxWantedStock": 1000
+			},
+			{
+				"idIte": 39,
+				"name": "pivo",
+				"purchasePrice": 50,
+				"sellingPrice": 60,
+				"currentStock": 800,
+				"minWantedStock": 500,
+				"maxWantedStock": 2000
+			},
+			{
+				"idIte": 46,
+				"name": "Konjak",
+				"purchasePrice": 800,
+				"sellingPrice": 1000,
+				"currentStock": 200,
+				"minWantedStock": 200,
+				"maxWantedStock": 500
+			},
+			{
+				"idIte": 47,
+				"name": "Viski",
+				"purchasePrice": 1000,
+				"sellingPrice": 1200,
+				"currentStock": 300,
+				"minWantedStock": 200,
+				"maxWantedStock": 700
+			}
+		]	
+	},
+	{
+		"idWar": 7,
+		"name": "Buvica",
+		"companyId": 3,
+		"itemsInfo": [
+			{
+				"idIte": 17,
+				"name": "Caj",
+				"purchasePrice": 200,
+				"sellingPrice": 300,
+				"currentStock": 100,
+				"minWantedStock": 50,
+				"maxWantedStock": 200
+			},
+			{
+				"idIte": 18,
+				"name": "limun",
+				"purchasePrice": 200,
+				"sellingPrice": 300,
+				"currentStock": 50,
+				"minWantedStock": 50,
+				"maxWantedStock": 200
+			},
+			{
+				"idIte": 19,
+				"name": "banane",
+				"purchasePrice": 100,
+				"sellingPrice": 150,
+				"currentStock": 100,
+				"minWantedStock": 50,
+				"maxWantedStock": 200
+			},
+			{
+				"idIte": 20,
+				"name": "jagode",
+				"purchasePrice": 150,
+				"sellingPrice": 200,
+				"currentStock": 100,
+				"minWantedStock": 50,
+				"maxWantedStock": 200
+			},
+			{
+				"idIte": 21,
+				"name": "beli krompir",
+				"purchasePrice": 80,
+				"sellingPrice": 100,
+				"currentStock": 500,
+				"minWantedStock": 500,
+				"maxWantedStock": 2000
+			},
+			{
+				"idIte": 22,
+				"name": "crveni krompir",
+				"purchasePrice": 80,
+				"sellingPrice": 100,
+				"currentStock": 800,
+				"minWantedStock": 500,
+				"maxWantedStock": 2000
+			},
+			{
+				"idIte": 23,
+				"name": "crni luk",
+				"purchasePrice": 50,
+				"sellingPrice": 70,
+				"currentStock": 1000,
+				"minWantedStock": 500,
+				"maxWantedStock": 2000
+			},
+			{
+				"idIte": 24,
+				"name": "beli luk",
+				"purchasePrice": 400,
+				"sellingPrice": 500,
+				"currentStock": 500,
+				"minWantedStock": 500,
+				"maxWantedStock": 1000
+			},
+			{
+				"idIte": 25,
+				"name": "sargarepa",
+				"purchasePrice": 40,
+				"sellingPrice": 50,
+				"currentStock": 300,
+				"minWantedStock": 200,
+				"maxWantedStock": 500
+			},
+			{
+				"idIte": 26,
+				"name": "paprika",
+				"purchasePrice": 100,
+				"sellingPrice": 150,
+				"currentStock": 300,
+				"minWantedStock": 500,
+				"maxWantedStock": 900
+			},
+			{
+				"idIte": 27,
+				"name": "crvena paprika",
+				"purchasePrice": 100,
+				"sellingPrice": 150,
+				"currentStock": 1000,
+				"minWantedStock": 500,
+				"maxWantedStock": 1500
+			}
+		]
+	},
+	{
+		"idWar": 8,
+		"name": "Rubin",
+		"companyId": 3,
+		"itemsInfo": [
+			{
+				"idIte": 17,
+				"name": "Caj",
+				"purchasePrice": 200,
+				"sellingPrice": 300,
+				"currentStock": 100,
+				"minWantedStock": 50,
+				"maxWantedStock": 200
+			},
+			{
+				"idIte": 18,
+				"name": "limun",
+				"purchasePrice": 200,
+				"sellingPrice": 300,
+				"currentStock": 50,
+				"minWantedStock": 50,
+				"maxWantedStock": 200
+			},
+			{
+				"idIte": 38,
+				"name": "Fanta",
+				"purchasePrice": 100,
+				"sellingPrice": 150,
+				"currentStock": 100,
+				"minWantedStock": 500,
+				"maxWantedStock": 2000
+			},
+			{
+				"idIte": 11,
+				"name": "pivo",
+				"purchasePrice": 50,
+				"sellingPrice": 70,
+				"currentStock": 1000,
+				"minWantedStock": 500,
+				"maxWantedStock": 2000
+			},
+			{
+				"idIte": 12,
+				"name": "nektar sok",
+				"purchasePrice": 80,
+				"sellingPrice": 100,
+				"currentStock": 500,
+				"minWantedStock": 300,
+				"maxWantedStock": 2000
+			},
+			{
+				"idIte": 13,
+				"name": "Rakija",
+				"purchasePrice": 500,
+				"sellingPrice": 600,
+				"currentStock": 800,
+				"minWantedStock": 500,
+				"maxWantedStock": 2000
+			},
+			{
+				"idIte": 46,
+				"name": "Konjak",
+				"purchasePrice": 600,
+				"sellingPrice": 700,
+				"currentStock": 1000,
+				"minWantedStock": 500,
+				"maxWantedStock": 2000
+			},
+			{
+				"idIte": 16,
+				"name": "Vino",
+				"purchasePrice": 400,
+				"sellingPrice": 500,
+				"currentStock": 500,
+				"minWantedStock": 500,
+				"maxWantedStock": 1000
+			},
+			{
+				"idIte": 47,
+				"name": "Viski",
+				"purchasePrice": 1000,
+				"sellingPrice": 1200,
+				"currentStock": 300,
+				"minWantedStock": 200,
+				"maxWantedStock": 500
+			},
+			{
+				"idIte": 51,
+				"name": "sok od narandze",
+				"purchasePrice": 100,
+				"sellingPrice": 150,
+				"currentStock": 300,
+				"minWantedStock": 500,
+				"maxWantedStock": 900
+			},
+			{
+				"idIte": 52,
+				"name": "Sok od jagode",
+				"purchasePrice": 100,
+				"sellingPrice": 150,
+				"currentStock": 1000,
+				"minWantedStock": 500,
+				"maxWantedStock": 1500
+			}
+		]
+	},
+	{
+		"idWar": 9,
+		"name": "Lipa",
+		"companyId": 1,
+		"itemsInfo": [
+			{
+				"idIte": 65,
+				"name": "mleveni keks",
+				"purchasePrice": 100,
+				"sellingPrice": 120,
+				"currentStock": 1000,
+				"minWantedStock": 500,
+				"maxWantedStock": 2000
+			},
+			{
+				"idIte": 64,
+				"name": "kakao",
+				"purchasePrice": 200,
+				"sellingPrice": 300,
+				"currentStock": 50,
+				"minWantedStock": 50,
+				"maxWantedStock": 200
+			},
+			{
+				"idIte": 19,
+				"name": "banane",
+				"purchasePrice": 100,
+				"sellingPrice": 150,
+				"currentStock": 100,
+				"minWantedStock": 50,
+				"maxWantedStock": 200
+			},
+			{
+				"idIte": 20,
+				"name": "jagode",
+				"purchasePrice": 150,
+				"sellingPrice": 200,
+				"currentStock": 100,
+				"minWantedStock": 50,
+				"maxWantedStock": 200
+			},
+			{
+				"idIte": 63,
+				"name": "jaja",
+				"purchasePrice": 15,
+				"sellingPrice": 20,
+				"currentStock": 500,
+				"minWantedStock": 500,
+				"maxWantedStock": 1000
+			},
+			{
+				"idIte": 62,
+				"name": "grasak",
+				"purchasePrice": 80,
+				"sellingPrice": 100,
+				"currentStock": 800,
+				"minWantedStock": 500,
+				"maxWantedStock": 2000
+			},
+			{
+				"idIte": 23,
+				"name": "crni luk",
+				"purchasePrice": 50,
+				"sellingPrice": 70,
+				"currentStock": 1000,
+				"minWantedStock": 500,
+				"maxWantedStock": 2000
+			},
+			{
+				"idIte": 24,
+				"name": "beli luk",
+				"purchasePrice": 400,
+				"sellingPrice": 500,
+				"currentStock": 500,
+				"minWantedStock": 500,
+				"maxWantedStock": 1000
+			},
+			{
+				"idIte": 25,
+				"name": "sargarepa",
+				"purchasePrice": 40,
+				"sellingPrice": 50,
+				"currentStock": 300,
+				"minWantedStock": 200,
+				"maxWantedStock": 500
+			},
+			{
+				"idIte": 61,
+				"name": "pasulj",
+				"purchasePrice": 200,
+				"sellingPrice": 250,
+				"currentStock": 300,
+				"minWantedStock": 500,
+				"maxWantedStock": 900
+			},
+			{
+				"idIte": 60,
+				"name": "pirinac",
+				"purchasePrice": 100,
+				"sellingPrice": 150,
+				"currentStock": 1000,
+				"minWantedStock": 500,
+				"maxWantedStock": 1500
+			}
+		]
+	},
+	{
+		"idWar": 10,
+		"name": "Jelena",
+		"companyId": 2,
+		"itemsInfo": [
+			{
+				"idIte": 59,
+				"name": "energetsko pice",
+				"purchasePrice": 100,
+				"sellingPrice": 130,
+				"currentStock": 100,
+				"minWantedStock": 50,
+				"maxWantedStock": 200
+			},
+			{
+				"idIte": 57,
+				"name": "negazirana voda",
+				"purchasePrice": 50,
+				"sellingPrice": 70,
+				"currentStock": 50,
+				"minWantedStock": 50,
+				"maxWantedStock": 200
+			},
+			{
+				"idIte": 56,
+				"name": "sirup od maline",
+				"purchasePrice": 100,
+				"sellingPrice": 150,
+				"currentStock": 100,
+				"minWantedStock": 50,
+				"maxWantedStock": 200
+			},
+			{
+				"idIte": 20,
+				"name": "jagode",
+				"purchasePrice": 150,
+				"sellingPrice": 200,
+				"currentStock": 100,
+				"minWantedStock": 50,
+				"maxWantedStock": 200
+			},
+			{
+				"idIte": 55,
+				"name": "sirup od aronije",
+				"purchasePrice": 180,
+				"sellingPrice": 200,
+				"currentStock": 500,
+				"minWantedStock": 200,
+				"maxWantedStock": 1000
+			},
+			{
+				"idIte": 53,
+				"name": "sok od brusnice",
+				"purchasePrice": 150,
+				"sellingPrice": 200,
+				"currentStock": 800,
+				"minWantedStock": 500,
+				"maxWantedStock": 2000
+			},
+			{
+				"idIte": 54,
+				"name": "sok od kajsije",
+				"purchasePrice": 50,
+				"sellingPrice": 70,
+				"currentStock": 1000,
+				"minWantedStock": 500,
+				"maxWantedStock": 2000
+			},
+			{
+				"idIte": 52,
+				"name": "sok od jagode",
+				"purchasePrice": 100,
+				"sellingPrice": 120,
+				"currentStock": 500,
+				"minWantedStock": 500,
+				"maxWantedStock": 1000
+			},
+			{
+				"idIte": 51,
+				"name": "sok od narandze",
+				"purchasePrice": 40,
+				"sellingPrice": 50,
+				"currentStock": 300,
+				"minWantedStock": 200,
+				"maxWantedStock": 500
+			},
+			{
+				"idIte": 50,
+				"name": "sok od jabuke",
+				"purchasePrice": 100,
+				"sellingPrice": 150,
+				"currentStock": 300,
+				"minWantedStock": 500,
+				"maxWantedStock": 900
+			},
+			{
+				"idIte": 3,
+				"name": "Bombone",
+				"purchasePrice": 100,
+				"sellingPrice": 150,
+				"currentStock": 1000,
+				"minWantedStock": 500,
+				"maxWantedStock": 1500
+			}
+		]
+	},
+	{
+		"idWar": 11,
+		"name": "Suplji jasen",
+		"companyId": 2,
+		"itemsInfo": [
+			{
+				"idIte": 32,
+				"name": "mladi sir",
+				"purchasePrice": 200,
+				"sellingPrice": 300,
+				"currentStock": 100,
+				"minWantedStock": 50,
+				"maxWantedStock": 200
+			},
+			{
+				"idIte": 33,
+				"name": "stari sir",
+				"purchasePrice": 200,
+				"sellingPrice": 300,
+				"currentStock": 50,
+				"minWantedStock": 50,
+				"maxWantedStock": 200
+			},
+			{
+				"idIte": 34,
+				"name": "kackavalj",
+				"purchasePrice": 1000,
+				"sellingPrice": 1200,
+				"currentStock": 100,
+				"minWantedStock": 50,
+				"maxWantedStock": 200
+			},
+			{
+				"idIte": 35,
+				"name": "kiselo mleko",
+				"purchasePrice": 50,
+				"sellingPrice": 70,
+				"currentStock": 1000,
+				"minWantedStock": 500,
+				"maxWantedStock": 2000
+			},
+			{
+				"idIte": 36,
+				"name": "jogurt",
+				"purchasePrice": 80,
+				"sellingPrice": 100,
+				"currentStock": 500,
+				"minWantedStock": 500,
+				"maxWantedStock": 2000
+			},
+			{
+				"idIte": 37,
+				"name": "kore za pitu",
+				"purchasePrice": 80,
+				"sellingPrice": 100,
+				"currentStock": 800,
+				"minWantedStock": 500,
+				"maxWantedStock": 2000
+			},
+			{
+				"idIte": 41,
+				"name": "alva",
+				"purchasePrice": 50,
+				"sellingPrice": 70,
+				"currentStock": 1000,
+				"minWantedStock": 500,
+				"maxWantedStock": 2000
+			},
+			{
+				"idIte": 42,
+				"name": "grisine",
+				"purchasePrice": 40,
+				"sellingPrice": 50,
+				"currentStock": 500,
+				"minWantedStock": 500,
+				"maxWantedStock": 1000
+			},
+			{
+				"idIte": 43,
+				"name": "vafle",
+				"purchasePrice": 40,
+				"sellingPrice": 50,
+				"currentStock": 300,
+				"minWantedStock": 200,
+				"maxWantedStock": 500
+			},
+			{
+				"idIte": 44,
+				"name": "eurokrem",
+				"purchasePrice": 100,
+				"sellingPrice": 150,
+				"currentStock": 300,
+				"minWantedStock": 500,
+				"maxWantedStock": 900
+			},
+			{
+				"idIte": 45,
+				"name": "euroblok",
+				"purchasePrice": 90,
+				"sellingPrice": 120,
+				"currentStock": 1000,
+				"minWantedStock": 500,
+				"maxWantedStock": 1500
+			}
+		]
+	},
+	{
+		"idWar": 12,
+		"name": "Favorit",
+		"companyId": 1,
+		"itemsInfo": [
+			{
+				"idIte": 58,
+				"name": "gazirana voda",
+				"purchasePrice": 50,
+				"sellingPrice": 70,
+				"currentStock": 100,
+				"minWantedStock": 50,
+				"maxWantedStock": 200
+			},
+			{
+				"idIte": 57,
+				"name": "negazirana voda",
+				"purchasePrice": 20,
+				"sellingPrice": 30,
+				"currentStock": 50,
+				"minWantedStock": 50,
+				"maxWantedStock": 200
+			},
+			{
+				"idIte": 19,
+				"name": "banane",
+				"purchasePrice": 100,
+				"sellingPrice": 150,
+				"currentStock": 100,
+				"minWantedStock": 50,
+				"maxWantedStock": 200
+			},
+			{
+				"idIte": 20,
+				"name": "jagode",
+				"purchasePrice": 150,
+				"sellingPrice": 200,
+				"currentStock": 100,
+				"minWantedStock": 50,
+				"maxWantedStock": 200
+			},
+			{
+				"idIte": 21,
+				"name": "beli krompir",
+				"purchasePrice": 80,
+				"sellingPrice": 100,
+				"currentStock": 500,
+				"minWantedStock": 500,
+				"maxWantedStock": 2000
+			},
+			{
+				"idIte": 22,
+				"name": "crveni krompir",
+				"purchasePrice": 80,
+				"sellingPrice": 100,
+				"currentStock": 800,
+				"minWantedStock": 500,
+				"maxWantedStock": 2000
+			},
+			{
+				"idIte": 23,
+				"name": "crni luk",
+				"purchasePrice": 50,
+				"sellingPrice": 70,
+				"currentStock": 1000,
+				"minWantedStock": 500,
+				"maxWantedStock": 2000
+			},
+			{
+				"idIte": 24,
+				"name": "beli luk",
+				"purchasePrice": 400,
+				"sellingPrice": 500,
+				"currentStock": 500,
+				"minWantedStock": 500,
+				"maxWantedStock": 1000
+			},
+			{
+				"idIte": 25,
+				"name": "sargarepa",
+				"purchasePrice": 40,
+				"sellingPrice": 50,
+				"currentStock": 300,
+				"minWantedStock": 200,
+				"maxWantedStock": 500
+			},
+			{
+				"idIte": 26,
+				"name": "paprika",
+				"purchasePrice": 100,
+				"sellingPrice": 150,
+				"currentStock": 300,
+				"minWantedStock": 500,
+				"maxWantedStock": 900
+			},
+			{
+				"idIte": 27,
+				"name": "crvena paprika",
+				"purchasePrice": 100,
+				"sellingPrice": 150,
+				"currentStock": 1000,
+				"minWantedStock": 500,
+				"maxWantedStock": 1500
+			}
+		]
+	}
+] 

@@ -1,0 +1,87 @@
+[
+	{
+		"idReg": 1,
+		"location": "Ulica 12",
+		"type": "obicna",
+		"companyId": 2
+	},
+	{
+		"idReg": 2,
+		"location": "Ulica 4",
+		"type": "obicna",
+		"companyId": 1
+	},
+	{
+		"idReg": 3,
+		"location": "Ulica 11",
+		"type": "e-kasa",
+		"companyId": 2
+	},
+	{
+		"idReg": 4,
+		"location": "Ulica 89",
+		"type": "specijalna",
+		"companyId": 1
+	},
+	{
+		"idReg": 5,
+		"location": "Ulica 765",
+		"type": "e-kasa",
+		"companyId": 1
+	},
+	{
+		"idReg": 6,
+		"location": "Ulica 164",
+		"type": "obicna",
+		"companyId": 3
+	},
+	{
+		"idReg": 7,
+		"location": "Ulica 123",
+		"type": "specijalna",
+		"companyId": 2
+	},
+	{
+		"idReg": 8,
+		"location": "Ulica 69",
+		"type": "specijalna",
+		"companyId": 2
+	},
+	{
+		"idReg": 9,
+		"location": "Ulica 1",
+		"type": "obicna",
+		"companyId": 3
+	},
+	{
+		"idReg": 10,
+		"location": "Ulica 2",
+		"type": "e-kasa",
+		"companyId": 2
+	},
+	{
+		"idReg": 11,
+		"location": "Ulica 122",
+		"type": "obicna",
+		"companyId": 2
+	},
+	{
+		"idReg": 12,
+		"location": "Ulica 35",
+		"type": "e-kasa",
+		"companyId": 2
+	},
+	{
+		"idReg": 13,
+		"location": "Ulica 47",
+		"type": "obicna",
+		"companyId": 2
+	},
+	{
+		"idReg": 14,
+		"location": "Ulica 3",
+		"type": "specijalna",
+		"companyId": 2
+	}
+
+]

@@ -1,0 +1,342 @@
+[
+	{
+		"firstname": "Petar",
+		"lastname": "Petrovic",
+		"username": "pera",
+		"password": "Pera#123",
+		"type": 1,
+		"phone": "0645584562",
+		"numLK": "332654521"
+	},
+	{
+		"firstname": "Mirko",
+		"lastname": "Mirkovic",
+		"username": "mika",
+		"password": "Mika#123",
+		"type": 1,
+		"phone": "0665963265",
+		"numLK": "789542326"
+	},
+	{
+		"firstname": "Admin",
+		"lastname": "Adminovic",
+		"username": "admin",
+		"password": "1",
+		"type": 0
+	},
+	{
+		"firstname": "Glorija",
+		"lastname": "Doslo",
+		"username": "glorija",
+		"password": "Glorija#1",
+		"type": 1,
+		"phone": "0616092403",
+		"numLK": "569845989"
+	},
+	{
+		"idCom": 1, 
+		"firstname": "Vladimir",
+		"lastname": "Vladimirovic",
+		"username": "vlada",
+		"password": "1",
+		"type": 2,
+		"phone": "0614585646",
+		"email": "vlada@gmail.com",
+		"comname": "Vladina kompanija",
+		"address": "Srbija, Beograd, 11230, Ulica 2",
+		"pib": "454328762",
+		"comnumber": 1,
+		"isAccepted": 0,
+		"isActivated": true,
+		"isFirstLogin": false,
+		"category": "prodavnica",
+		"activityCipher": "sifraPro1",
+		"isPDV": true,
+		"numOfAccounts": 2,
+		"numOfWarehouses": 4,
+		"numOfRegisters": 3,
+		"Orderers": [],
+		"image": "data:image/jpeg;base64,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",
+		"items": [
+			{
+				"idIte": 3,
+				"itemName": "Bombone",
+				"manufacturer": "Alibaba",
+				"minStock": 100,
+				"maxStock": 500
+			},
+			{
+				"idIte": 5,
+				"itemName": "cips",
+				"manufacturer": "Pik",
+				"minStock": 2,
+				"maxStock": 200
+			},
+			{
+				"idIte": 7,
+				"itemName": "kafa",
+				"manufacturer": "Don",
+				"minStock": 20,
+				"maxStock": 200
+			},
+			{
+				"idIte": 11,
+				"itemName": "Pivo",
+				"manufacturer": "Niksic",
+				"minStock": 50,
+				"maxStock": 200
+			},
+			{
+				"idIte": 12,
+				"itemName": "Nektar sok",
+				"manufacturer": "Nektar",
+				"minStock": 80,
+				"maxStock": 300
+			},
+			{
+				"idIte": 13,
+				"itemName": "Rakija",
+				"manufacturer": "Sljivovica",
+				"minStock": 2,
+				"maxStock": 20
+			},
+			{
+				"idIte": 15,
+				"itemName": "Cola",
+				"manufacturer": "Pepsico",
+				"minStock": 100,
+				"maxStock": 500
+			}
+
+		]
+	},
+	{
+		"idCom": 2,
+		"firstname": "Dragan",
+		"lastname": "Draganimirovic",
+		"username": "dragan",
+		"password": "1",
+		"type": 2,
+		"phone": "0614785907",
+		"email": "drakce@outlook.com",
+		"comname": "Drakcetov sokak",
+		"address": "Srbija, Novi Sad, 21212, Mala ulicica 201",
+		"pib": "739321767",
+		"comnumber": 2,
+		"isAccepted": 0,
+		"isActivated": true,
+		"isFirstLogin": false,
+		"category": "ugostitelj",
+		"activityCipher": "sifraUgo2",
+		"isPDV": false,
+		"numOfAccounts": 1,
+		"numOfWarehouses": 5,
+		"numOfRegisters": 9,
+		"Orderers": [],
+		"image": "data:image/jpeg;base64,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",
+		"items": [
+			{
+				"idIte": 14,
+				"itemName": "Mleko",
+				"manufacturer": "Alpsko",
+				"minStock": 5,
+				"maxStock": 150
+			},
+			{
+				"idIte": 10,
+				"itemName": "Hrana za bebe",
+				"manufacturer": "Takovo",
+				"minStock": 2,
+				"maxStock": 60
+			},
+			{
+				"idIte": 17,
+				"itemName": "Caj",
+				"manufacturer": "Lord",
+				"minStock": 2,
+				"maxStock": 200
+			},
+			{
+				"idIte": 35,
+				"itemName": "kiselo mleko",
+				"manufacturer": "Kuc",
+				"minStock": 2,
+				"maxStock": 200
+			},
+			{
+				"idIte": 36,
+				"itemName": "jogurt",
+				"manufacturer": "Moja kravica",
+				"minStock": 2,
+				"maxStock": 200
+			},
+			{
+				"idIte": 40,
+				"itemName": "grcki jogurt",
+				"manufacturer": "Yogurt",
+				"minStock": 20,
+				"maxStock": 100
+			},
+			{
+				"idIte": 38,
+				"itemName": "Fanta",
+				"manufacturer": "Pepsico",
+				"minStock": 100,
+				"maxStock": 300
+			},
+			{
+				"idIte": 39,
+				"itemName": "pivo",
+				"manufacturer": "Zajecar",
+				"minStock": 150,
+				"maxStock": 500
+			},
+			{
+				"idIte": 46,
+				"itemName": "Konjak",
+				"manufacturer": "Paris",
+				"minStock": 2,
+				"maxStock": 20
+			}
+			
+
+		]
+	},
+	{
+		"idCom": 3,
+		"firstname": "Marko",
+		"lastname": "Markovic",
+		"username": "markic",
+		"password": "1",
+		"type": 2,
+		"phone": "0645900142",
+		"email": "marko.markovic1989@gmail.com",
+		"comname": "Markovici",
+		"address": "Srbija, Beograd, 11341, Ulica 391",
+		"pib": "869421712",
+		"comnumber": 3,
+		"isAccepted": 1,
+		"isActivated": false,
+		"isFirstLogin": false,
+		"category": "prodavnica",
+		"activityCipher": "sifraPro2",
+		"isPDV": false,
+		"numOfAccounts": 2,
+		"numOfWarehouses": 3,
+		"numOfRegisters": 2,
+		"orderers": [
+			{
+				"idCom": 2,
+				"numOfDays": 15,
+				"discount": 10
+			}
+		],
+		"items": [
+			{
+				"idIte": 19,
+				"itemName": "banane",
+				"manufacturer": "banane",
+				"minStock": 5,
+				"maxStock": 50
+			},
+			{
+				"idIte": 20,
+				"itemName": "jagode",
+				"manufacturer": "Strawberry",
+				"minStock": 2,
+				"maxStock": 60
+			},
+			{
+				"idIte": 21,
+				"itemName": "beli krompir",
+				"manufacturer": "Ivanjica",
+				"minStock": 2,
+				"maxStock": 500
+			},
+			{
+				"idIte": 22,
+				"itemName": "crveni krompir",
+				"manufacturer": "Ivanjica",
+				"minStock": 2,
+				"maxStock": 500
+			},
+			{
+				"idIte": 23,
+				"itemName": "crni luk",
+				"manufacturer": "Ruma",
+				"minStock": 2,
+				"maxStock": 200
+			},
+			{
+				"idIte": 24,
+				"itemName": "beli luk",
+				"manufacturer": "Sopot",
+				"minStock": 2,
+				"maxStock": 50
+			},
+			{
+				"idIte": 25,
+				"itemName": "sargarepa",
+				"manufacturer": "Novi Sad",
+				"minStock": 2,
+				"maxStock": 100
+			},
+			{
+				"idIte": 26,
+				"itemName": "paprika",
+				"manufacturer": "Prokuplje",
+				"minStock": 2,
+				"maxStock": 200
+			},
+			{
+				"idIte": 27,
+				"itemName": "crvena paprika",
+				"manufacturer": "Leskovac",
+				"minStock": 2,
+				"maxStock": 500
+			},
+			{
+				"idIte": 51,
+				"itemName": "sok od narandze",
+				"manufacturer": "Nektar",
+				"minStock": 2,
+				"maxStock": 200
+			},
+			{
+				"idIte": 52,
+				"itemName": "sok od jagode",
+				"manufacturer": "Nektar",
+				"minStock": 2,
+				"maxStock": 200
+			}
+		],
+		"image": "data:image/jpeg;base64,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"
+	},
+	{
+		"idCom": 4,
+		"firstname": "Milica",
+		"lastname": "Milicovic",
+		"username": "mica",
+		"password": "1",
+		"type": 2,
+		"phone": "0645905441",
+		"email": "zlamica@gmail.com",
+		"comname": "Micina kompanijica",
+		"address": "Srbija, Beograd, 11141, Ulica 341",
+		"pib": "869465912",
+		"comnumber": 4,
+		"isAccepted": 1,
+		"isActivated": false,
+		"isFirstLogin": true,
+		"category": null,
+		"activityCipher": null,
+		"isPDV": null,
+		"numOfAccounts": null,
+		"numOfWarehouses": null,
+		"numOfRegisters": null,
+		"Orderers": [],
+		"image": "data:image/jpeg;base64,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",
+		"items": [
+		]
+	}
+]
